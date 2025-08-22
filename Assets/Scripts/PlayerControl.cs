@@ -24,8 +24,8 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    public float moveSpeed;
-    public float projectileSpeed;
+    private float moveSpeed;
+    private float projectileSpeed;
     private GridGenerator grid;
     public GameObject projectilePrefab;
     private bool isMoving;
@@ -70,6 +70,9 @@ public class PlayerControl : MonoBehaviour
         //We make sure that the current tile and target tile are set to our current 0,0 tile at start
         currentTile = grid.tiles[rIndex, cIndex];
         targetTile = currentTile;
+
+        moveSpeed = GameProperties.inst.playerMoveSpeed;
+        projectileSpeed = GameProperties.inst.projectileSpeed;
 
         Init();
 

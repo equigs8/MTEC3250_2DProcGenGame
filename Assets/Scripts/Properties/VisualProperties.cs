@@ -5,62 +5,71 @@ public class VisualProperties : MonoBehaviour
 {
     public static VisualProperties inst;
 
+    public Sprite backgroundImage;
+
     [Serializable]
     public class PlayerVisuals
     {
+        public RuntimeAnimatorController animController;
+        public Sprite sprite;
         public Color color;
         public GameObject arrow;
-        public Sprite sprite;
-        public RuntimeAnimatorController animController;
+
         public bool allowPlayerRotation;
     }
 
     [Serializable]
     public class ProjectileVisuals
     {
-        public Color color;
-        public Sprite sprite;
         public RuntimeAnimatorController animController;
+        public Sprite sprite;
+        public Color color;
+           
     }
 
     [Serializable]
     public class TileVisuals
     {
-        public Color color;
-        public Sprite sprite;
         public RuntimeAnimatorController animController;
+        public Sprite sprite;
+        public Color color;
+             
     }
 
     [Serializable]
     public class CrateTileVisuals
     {
-        public Color color;
-        public Sprite sprite;
         public RuntimeAnimatorController animController;
+        public Sprite sprite;
+        public Color color;
+  
     }
 
     [Serializable]
     public class TrapTileVisuals
     {
-        public Color color;
-        public Sprite sprite;
         public RuntimeAnimatorController animController;
+        public Sprite sprite;
+        public Color color;
+             
     }
 
     [Serializable]
     public class BlockTileVisuals
     {
-        public Color color;
-        public Sprite sprite;
         public RuntimeAnimatorController animController;
+        public Sprite sprite;
+        public Color color;
+             
     }
 
     [Serializable]
     public class GoalTileVisuals
     {
-        public Color color;
-        public Sprite sprite;
         public RuntimeAnimatorController animController;
+        public Sprite sprite;
+        public Color color;
+            
     }
 
     public PlayerVisuals playerVisuals;

@@ -17,15 +17,15 @@ public class GridGenerator : MonoBehaviour
 
     //Origin tile position , All subsequent tiles will be positioned based on this one
     //Origin tile is [0,0];
-    public Vector3 originPos = new Vector3(-3, -3, 0);
+    private Vector3 originPos;
 
-    [Range(0, 10)] public int holeCount;
-    [Range(0, 10)] public int trapTileCount;
-    [Range(0, 30)] public int crateCount;
+    private int blockCount;
+    private int trapTileCount;
+    private int crateCount;
 
-    public List<Tile> trapTiles = new List<Tile>();
+    private List<Tile> trapTiles = new List<Tile>();
     private List<Tile> inaccessibleTiles = new List<Tile>();
-    public List<Tile> crates = new List<Tile>();
+    private List<Tile> crates = new List<Tile>();
 
     [HideInInspector]public Tile goalTile;
 
@@ -34,6 +34,14 @@ public class GridGenerator : MonoBehaviour
     {
         if (inst == null) inst = this;
         else Destroy(gameObject);
+
+        originPos = GameProperties.inst.gridOriginPosition;
+        rows = GameProperties.inst.gridColumns;
+        columns = GameProperties.inst.gridRows;
+
+        blockCount = GameProperties.inst.blockCount;
+        trapTileCount = GameProperties.inst.trapTileCount;
+        crateCount = GameProperties.inst.crateCount;
 
         //Initilize 2D array
         tiles = new Tile[rows, columns];
@@ -69,7 +77,7 @@ public class GridGenerator : MonoBehaviour
         }
 
         // We run some for loops after making the Grid to set any specific tiles.
-        for (int i = 0; i < holeCount; i++)
+        for (int i = 0; i < blockCount; i++)
         {
             AddHoles();
         }
