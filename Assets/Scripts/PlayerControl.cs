@@ -5,23 +5,118 @@ using System;
 
 public class PlayerControl : MonoBehaviour
 {
-    private void Control(Vector3 direction)
+    ////////////////////////////////////////////////////////////////////////////
+    /// Animation Controlling Methods   ////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    
+    private void MovementAnimationControl(Vector3 _direction)
     {
-        if (rotationEnabled)
+        RotatePlayer(_direction, rotationEnabled);
+
+        if (animatorController == null) return;
+
+        if (!rotationEnabled)
         {
-            RotatePlayer(direction);
+            if (_direction == Vector3.down)
+            {
+                //Animator code goes here for this state
+            }
+
+            if (_direction == Vector3.up)
+            {
+                //Animator code goes here for this state
+            }
+
+            if (_direction == Vector3.left)
+            {
+                //Animator code goes here for this state
+            }
+
+            if (_direction == Vector3.right)
+            {
+                //Animator code goes here for this state
+            }
         }
-
-        if (visuals.animController != null)
+        else //ONLY IF USING ROTATION TURNING
         {
-
-        }
-        else if (visuals.sprite != null)
-        {
-
-
+            if (isMoving)
+            {
+                //Animator code goes here for this state
+            }
+            else
+            {
+                //Animator code goes here for this state
+            }
         }
     }
+
+    private void MovingFinished()
+    {
+        if (animatorController == null) return;
+
+        //Code for resetting animator bools go here
+    }
+
+    private void ChangeFacingDirection(Vector3 _direction)
+    {
+        if (animatorController == null) return;
+
+        if (_direction == Vector3.down)
+        {
+            //Animator code goes here for this state
+        }
+
+        if (_direction == Vector3.up)
+        {
+            //Animator code goes here for this state
+        }
+
+        if (_direction == Vector3.left)
+        {
+            //Animator code goes here for this state
+        }
+
+        if (_direction == Vector3.right)
+        {
+            //Animator code goes here for this state
+        }
+    }
+
+    private void FiringAnimationControl(Vector3 _direction)
+    {
+        if (animatorController == null) return;
+
+        if (rotationEnabled)
+        {
+            //Animator code goes here if using Rotation Turning
+        }
+        else
+        {
+            //Animator code goes here if not
+        }
+    }
+
+    private void EnteredTrap(Vector3 _direction)
+    {
+        if (animatorController == null) return;
+
+        if (rotationEnabled)
+        {
+            //Animator code goes here if using Rotation Turning
+        }
+        else
+        {
+            //Animator code goes here for this state
+        }
+    }
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    /// Rest of Player Control Script below this point ////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
 
     private float moveSpeed;
@@ -29,10 +124,12 @@ public class PlayerControl : MonoBehaviour
     private GridGenerator grid;
     public GameObject projectilePrefab;
     private bool isMoving;
+    private Vector3 direction;
     private VisualProperties.PlayerVisuals visuals;
     private Color color;
     private Sprite sprite;
-    private RuntimeAnimatorController animator;
+    private Animator animator;
+    private RuntimeAnimatorController animatorController;
     private GameObject arrow;
     private bool rotationEnabled;
 
@@ -43,12 +140,13 @@ public class PlayerControl : MonoBehaviour
     private AudioClip firing;
     private AudioClip goalReached;
 
-   
     private int rIndex = 0;
     private int lastRIndex = 0;
     private int lastCIndex = 0;
     private int cIndex = 0;
 
+
+    public Tile CurrentTile {get{return currentTile;}}
     private Tile currentTile;
     private Tile lastTile;
     private Tile targetTile;
@@ -64,12 +162,14 @@ public class PlayerControl : MonoBehaviour
 
         rend = GetComponentInChildren<SpriteRenderer>();
         grid = GridGenerator.inst;
+
         //This sets the player to grid place 0,0 at start
         transform.position = grid.GetTilePosition(rIndex, cIndex);
 
         //We make sure that the current tile and target tile are set to our current 0,0 tile at start
         currentTile = grid.tiles[rIndex, cIndex];
         targetTile = currentTile;
+        direction = Vector3.down;
 
         moveSpeed = GameProperties.inst.playerMoveSpeed;
         projectileSpeed = GameProperties.inst.projectileSpeed;
@@ -80,59 +180,65 @@ public class PlayerControl : MonoBehaviour
         enteringTrap = Sounds.inst.enterTrap;
         firing = Sounds.inst.fireProjectile;
         goalReached = Sounds.inst.goalReached;
-
-
     }
+
 
     private void Init()
     {
+
         rotationEnabled = visuals.allowPlayerRotation;
-        arrow = visuals.arrow;
+        color = rend.color;
+
 
         if (visuals.animController != null)
         {
-            animator = visuals.animController;
-            var anim = gameObject.AddComponent<Animator>();
-            anim.runtimeAnimatorController = animator;
-        }
-        else if (visuals.sprite != null)
-        {
-            sprite = visuals.sprite;
-            rend.sprite = sprite;
+            if (visuals.defaultSprite != null)
+            {
+                sprite = visuals.defaultSprite;
+                rend.sprite = sprite;
+            }
+
+            animatorController = visuals.animController;
+            animator = rend.gameObject.AddComponent<Animator>();
+            animator.runtimeAnimatorController = animatorController;
         }
 
         else
-        {   color = visuals.color;
+        {
+            rend.sprite = Resources.Load<Sprite>("Circle");
+            color = visuals.color;
             rend.color = color;
-            arrow.SetActive(true);
+
+            var prefab = Resources.Load<GameObject>("Arrow");
+            var pos = rend.transform.position + new Vector3(0, 0.2f, 0);
+            arrow = Instantiate(prefab, pos, Quaternion.identity, rend.transform);
         }
     }
 
 
     private void Update()
     {
-        //If the player is not moving, WASD can be used to set the direction the player needs to move.
         //Player will then move a single space in that direction
         if (!isMoving)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                Control(Vector3.right);
+                MovementAnimationControl(Vector3.right);
                 SetTargetTile(Vector3.right);
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                Control(Vector3.left);
+                MovementAnimationControl(Vector3.left);
                 SetTargetTile(Vector3.left);
             }
-            else if (Input.GetKeyDown(KeyCode.W))
+            else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                Control(Vector3.up);
+                MovementAnimationControl(Vector3.up);
                 SetTargetTile(Vector3.up);
             }
-            else if (Input.GetKeyDown(KeyCode.S)) 
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
             {
-                Control(Vector3.down);
+                MovementAnimationControl(Vector3.down);
                 SetTargetTile(Vector3.down);
             }
 
@@ -142,7 +248,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
         
-        //here is what triggers the player to move, once the targettile and currentle are not the samw
+        //here is what triggers the player to move, once the targettile and currentle are not the same
         //We run the coroutine that moves the player from their current position to their target position
         if (targetTile != currentTile)
         {
@@ -150,20 +256,24 @@ public class PlayerControl : MonoBehaviour
 
             //We then make a referenc to the last tile in case we need it again later -See: Traps
             lastTile = currentTile;
-            //And we make sure to set currentTile to the targettile so that we dont run the corourine endlessly
+            //And we make sure to set currentTile to the targettile so that we dont run the coroutine endlessly
             currentTile = targetTile;
         }   
     }
 
-    private void RotatePlayer(Vector2 direction )
+    private void RotatePlayer(Vector3 _direction, bool rotateVisual )
     {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-
+        direction = _direction;
+        ChangeFacingDirection(_direction);
+        if (rotateVisual)
+        {
+            float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        }
     }
 
     //These two functions do the same thing but take in different arguments.
-    //The first sets the target tile based on WASD direction  
+    //The first sets the target tile based on cardinal direction  
     private void SetTargetTile(Vector3 dir)
     {
         if (rIndex + dir.x >= 0 && rIndex + dir.x < grid.rows && cIndex + dir.y >= 0 && cIndex + dir.y < grid.columns)
@@ -178,7 +288,9 @@ public class PlayerControl : MonoBehaviour
                 rIndex += (int)dir.x;
                 cIndex += (int)dir.y;
             }
-        }      
+            else MovingFinished();        
+        }
+        else MovingFinished();     
     }
 
     //The second let's us direct pass a tile as target tile.
@@ -192,18 +304,18 @@ public class PlayerControl : MonoBehaviour
             rIndex = lastRIndex;
             cIndex = lastCIndex;
         }
-
     }
 
     private void FireProjectile()
     {
-        AudioManager.inst.PlaySound(firing);
-        var pos = transform.position + (transform.up * 0.5f);
+        AudioManager.inst.PlaySound(firing, Sounds.inst.fireProjectileVolume);
+        var pos = transform.position + (direction * 0.5f);
         GameObject go = Instantiate(projectilePrefab, pos, Quaternion.identity);
         var pjt = go.GetComponent<Projectile>();
         pjt.speed = projectileSpeed;
-        pjt.direction = transform.up;
+        pjt.direction = direction;
         pjt.Init();
+        FiringAnimationControl(direction);
     }
 
     //We move the player in a coroutine by sending a start and an end pos and just lerping between then
@@ -215,7 +327,7 @@ public class PlayerControl : MonoBehaviour
         float timeElapsed = 0;
         float duration = 1 / moveSpeed;
 
-        AudioManager.inst.PlaySound(playerMove);
+        AudioManager.inst.PlaySound(playerMove, Sounds.inst.playerMoveVolume);
         while (timeElapsed < duration)
         {
             //The lerping happens in the while loop
@@ -225,6 +337,7 @@ public class PlayerControl : MonoBehaviour
             yield return null;
         }
 
+        //Fire an event notifying any script that has registered for this event that the Player finished moving
         PlayerMoved?.Invoke();
         //Once the player has completely shifted to the target location, we're gonna run a function that process tile effects
         //We also make sure to set the position of the object to the exact endPos in case it's off by a very tiny amount
@@ -238,11 +351,13 @@ public class PlayerControl : MonoBehaviour
         //this function checks if the current tile is a trap tile
         if (currentTile.isTrap)
         {
-            AudioManager.inst.PlaySound(enteringTrap);
+            AudioManager.inst.PlaySound(enteringTrap, Sounds.inst.enterTrapVolume);
             //If it is, move the player back to the last tile they were on
             StartCoroutine(FlashPlayer());
             //And we call the Camera shake function, passing it the shake duration we want (it's currently 1/4 a sec) 
             CameraShake.inst.Shake(0.25f);
+
+            EnteredTrap(direction);
 
             //This step is also necessary to make sure out place on the grid gets properly updated
             SetTargetTile(lastTile);
@@ -251,24 +366,24 @@ public class PlayerControl : MonoBehaviour
         {
             isMoving = true;
 
+            //When we reach the goal, stop the music and play the goal reached sound
             AudioManager.inst.StopMusic();
-            AudioManager.inst.PlaySound(goalReached);
+            AudioManager.inst.PlaySound(goalReached, Sounds.inst.goalReachedVolume);
 
+            //If there is no goal reached sound then just restart immediately, otherwise invoke a restart with a delay the goal clip length
             if (goalReached == null) GameManager.inst.RestartGame();
             else
             {
                 var gm = GameManager.inst;
                 gm.Invoke("RestartGame", goalReached.length);
             } 
-
         }
         else
         {
             isMoving = false;
+            MovingFinished();
         }
-
     }
-
 
 
     //This coroutine just flashs the player red when they are hit by a trap

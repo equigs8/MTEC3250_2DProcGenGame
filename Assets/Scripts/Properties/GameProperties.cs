@@ -4,8 +4,11 @@ public class GameProperties : MonoBehaviour
 {
     public static GameProperties inst;
 
+    [Header("Player Settings")]
     public float playerMoveSpeed = 3;
     public float projectileSpeed = 7;
+
+    [Header("Grid Settings")]
     [Range(0, 10)] public int blockCount = 5;
     [Range(0, 10)] public int trapTileCount = 8;
     [Range(0, 30)] public int crateCount = 30;

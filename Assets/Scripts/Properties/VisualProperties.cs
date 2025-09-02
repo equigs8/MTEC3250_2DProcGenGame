@@ -11,9 +11,8 @@ public class VisualProperties : MonoBehaviour
     public class PlayerVisuals
     {
         public RuntimeAnimatorController animController;
-        public Sprite sprite;
+        public Sprite defaultSprite;
         public Color color;
-        public GameObject arrow;
 
         public bool allowPlayerRotation;
     }
@@ -72,8 +71,11 @@ public class VisualProperties : MonoBehaviour
             
     }
 
+    [Header("Player")]
     public PlayerVisuals playerVisuals;
+    [Header("Projectile")]
     public ProjectileVisuals projectileVisuals;
+    [Header("Tiles")]
     public TileVisuals tileVisuals;
     public CrateTileVisuals crateVisuals;
     public TrapTileVisuals trapVisuals;
