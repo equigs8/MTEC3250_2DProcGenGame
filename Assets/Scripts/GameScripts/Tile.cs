@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour
 
     private Sprite tileSprite;
     private Sprite defaultSprite;
+    private Sprite squareSprite;
 
     private RuntimeAnimatorController tileAnimator;
     private RuntimeAnimatorController defaultAnimator;
@@ -47,9 +48,15 @@ public class Tile : MonoBehaviour
     public static event Action<Tile> CrateDestroyed;
     public static event Action<Vector3> ProjectileHit;
 
-    public void Init(Type _type)
+    private void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
+        squareSprite = rend.sprite;
+    }
+
+    public void Init(Type _type)
+    {
+        
         grid = GridGenerator.inst;
         visuals = VisualProperties.inst;
 
@@ -65,10 +72,12 @@ public class Tile : MonoBehaviour
         switch (type)
         {
             case Type.DEFAULT:
+                ResetVisuals();
                 SetUpVisuals(defaultAnimator, defaultSprite, defaultTileColor);
                 break;
 
             case Type.CRATE:
+                ResetVisuals();
                 SetUpVisuals(visuals.crateVisuals.animController, visuals.crateVisuals.sprite, visuals.crateVisuals.color);
 
                 isCrate = true;
@@ -76,18 +85,21 @@ public class Tile : MonoBehaviour
                 break;
 
             case Type.TRAP:
+                ResetVisuals();
                 SetUpVisuals(visuals.trapVisuals.animController, visuals.trapVisuals.sprite, visuals.trapVisuals.color);
 
                 isTrap = true;
                 break;
 
             case Type.BLOCK:
+                ResetVisuals();
                 SetUpVisuals(visuals.blockVisuals.animController, visuals.blockVisuals.sprite, visuals.blockVisuals.color);
 
                 isInaccessible = true;
                 break;
 
             case Type.GOAL:
+                ResetVisuals();
                 SetUpVisuals(visuals.goalVisuals.animController, visuals.goalVisuals.sprite, visuals.goalVisuals.color);
 
                 isGoal = true;
@@ -121,11 +133,11 @@ public class Tile : MonoBehaviour
         if (!isCrate) return;
 
         AudioManager.inst.PlaySound(crateDestroyed, Sounds.inst.crateDestroyedVolume);
-        if (tileAnimator != null) { tileAnimator = defaultAnimator; }
-        else if (tileSprite != null) { tileSprite = defaultSprite; }
-        else { tileColor = defaultTileColor; rend.color = tileColor; }
+
+        Init(Type.DEFAULT);
 
         CrateDestroyed?.Invoke(this);
+        
 
         isCrate = false;
         isInaccessible = false;
@@ -136,7 +148,7 @@ public class Tile : MonoBehaviour
         if (_animController != null)
         {
             tileAnimator = _animController;
-            var anim = gameObject.AddComponent<Animator>();
+            var anim = GetAnimator();
             anim.runtimeAnimatorController = tileAnimator;        
         }
         else if (_sprite != null)
@@ -148,6 +160,30 @@ public class Tile : MonoBehaviour
         {   tileColor = _color;
             rend.color = tileColor;
         }
+    }
+
+    private void ResetVisuals()
+    {
+      
+        tileAnimator = null;
+        tileSprite = null;
+        rend.sprite = squareSprite;
+        rend.color = Color.white;
+
+        var anim = GetAnimator();
+        anim.runtimeAnimatorController = null;
+    }
+
+    private Animator GetAnimator()
+    {
+        var anim = gameObject.GetComponent<Animator>();
+
+        if (anim == null)
+        {
+            anim = gameObject.AddComponent<Animator>();
+
+        }
+        return anim;
     }
 
     public List<Tile> Neighbors()

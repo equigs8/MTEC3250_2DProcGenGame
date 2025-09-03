@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 14e906a53054746f6a2800787a7eed34
+guid: c3e192fb186514ee88c62a3df9862b06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9001524413006939466
-    second: BabySpriteSheet_export_0
+      213: 448842485207807203
+    second: babySpriteSheet_0
   - first:
-      213: 6021429552333998605
-    second: BabySpriteSheet_export_1
+      213: 1036059912631208570
+    second: babySpriteSheet_1
   - first:
-      213: -5758788541144504747
-    second: BabySpriteSheet_export_2
+      213: 8701730429816723224
+    second: babySpriteSheet_2
   - first:
-      213: -4993913211790649069
-    second: BabySpriteSheet_export_3
+      213: 5497436791112901100
+    second: babySpriteSheet_3
   - first:
-      213: 8432937826803016438
-    second: BabySpriteSheet_export_4
+      213: -4833132796931198093
+    second: babySpriteSheet_4
   - first:
-      213: 7268809567553166623
-    second: BabySpriteSheet_export_5
+      213: -1668181733362764617
+    second: babySpriteSheet_5
   - first:
-      213: -1442563947156288199
-    second: BabySpriteSheet_export_6
+      213: -1225840491667632833
+    second: babySpriteSheet_6
   - first:
-      213: -2130328334501182026
-    second: BabySpriteSheet_export_7
+      213: -6856808316442695903
+    second: babySpriteSheet_7
   - first:
-      213: -852079003165355977
-    second: BabySpriteSheet_export_8
+      213: -4583794855064416661
+    second: babySpriteSheet_8
   - first:
-      213: 4692341498878058671
-    second: BabySpriteSheet_export_9
+      213: 8050906704994088332
+    second: babySpriteSheet_9
   - first:
-      213: -769230776853544772
-    second: BabySpriteSheet_export_10
+      213: -8095426530184805829
+    second: babySpriteSheet_10
   - first:
-      213: -4885386017400952278
-    second: BabySpriteSheet_export_11
+      213: -8076681324112127595
+    second: babySpriteSheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 210
+  spritePixelsToUnits: 235
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -172,7 +172,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BabySpriteSheet_export_0
+      name: babySpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -180,21 +180,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 927284281e83e46238ea762dfaa370d5
-      internalID: 711498772
+      spriteID: b1eaf85d7d1db4279b4e09021e142748
+      internalID: -839035908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_1
+      name: babySpriteSheet_1
       rect:
         serializedVersion: 2
         x: 265
@@ -202,21 +202,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20cd6cad18152481ca39b5837feb5132
-      internalID: 1992378144
+      spriteID: b4ccfed2a34da4592a06057a8c52085f
+      internalID: 2020645375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_2
+      name: babySpriteSheet_2
       rect:
         serializedVersion: 2
         x: 530
@@ -224,21 +224,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe429876389114e78bdf2bac418055af
-      internalID: -2059746772
+      spriteID: 1ba91bbd49b004f349a679703365ecde
+      internalID: 2144604030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_3
+      name: babySpriteSheet_3
       rect:
         serializedVersion: 2
         x: 795
@@ -246,21 +246,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e706269a5006414d8e3f915551fbf03
-      internalID: 757327217
+      spriteID: f0b5d8304f567411ea355c7adf894465
+      internalID: 448999772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_4
+      name: babySpriteSheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -268,21 +268,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e5ac821dcb814504aeb19015a7dcd6a
-      internalID: -1204329246
+      spriteID: 4b10c71174f5245c6a4aa3db7c957043
+      internalID: -1818745110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_5
+      name: babySpriteSheet_5
       rect:
         serializedVersion: 2
         x: 265
@@ -290,21 +290,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b9b1b5b849c34ee2bdc8fcfd09c2d38
-      internalID: -1466656484
+      spriteID: c32c19805e63441eb8b6a46d22053dc6
+      internalID: 1026392420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_6
+      name: babySpriteSheet_6
       rect:
         serializedVersion: 2
         x: 530
@@ -312,21 +312,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dd33f38b748a4e478d1e4dba77b9a41
-      internalID: -514677147
+      spriteID: 02885039c82944f3c8d99326ac7e820a
+      internalID: 1600708922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_7
+      name: babySpriteSheet_7
       rect:
         serializedVersion: 2
         x: 795
@@ -334,43 +334,43 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e5654d6c4be44d4eb6c58807db0c73e
-      internalID: -1468475689
+      spriteID: 9ce0f4a56b2cf417ebb82167ddbe2adf
+      internalID: -169260776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_8
+      name: babySpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2
         y: 0
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e352eb3ae4db14d60b0981e0c1990cd8
-      internalID: -1781940092
+      spriteID: b8e447754d7ef4dc6965723b93ba1dbf
+      internalID: -19967412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_9
+      name: babySpriteSheet_9
       rect:
         serializedVersion: 2
         x: 265
@@ -378,21 +378,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51a23145b42574834a1d3a0a502e98ec
-      internalID: 1984303931
+      spriteID: 6e567a812e3ea4e0db8f1b8e7a89e777
+      internalID: 1399041482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_10
+      name: babySpriteSheet_10
       rect:
         serializedVersion: 2
         x: 530
@@ -400,21 +400,21 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbf18b18f786041a19e527f07c0429fd
-      internalID: 1322129652
+      spriteID: 738dcad200476420fa5181b7860052b8
+      internalID: 501724936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BabySpriteSheet_export_11
+      name: babySpriteSheet_11
       rect:
         serializedVersion: 2
         x: 795
@@ -422,15 +422,15 @@ TextureImporter:
         width: 265
         height: 265
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6067a8c15d7a4165ac79dd0dace5778
-      internalID: 671322279
+      spriteID: dd6f8f601d00e4aeebf1fa512c876085
+      internalID: 424859580
       vertices: []
       indices: 
       edges: []
@@ -439,7 +439,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a43a672410fdf4f17b9fe20f4ba2d294
+    spriteID: 8ab1bf0ec6ab34f6f9c60a853864ebec
     internalID: 0
     vertices: []
     indices: 
@@ -449,18 +449,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BabySpriteSheet_export_0: 711498772
-      BabySpriteSheet_export_1: 1992378144
-      BabySpriteSheet_export_10: 1322129652
-      BabySpriteSheet_export_11: 671322279
-      BabySpriteSheet_export_2: -2059746772
-      BabySpriteSheet_export_3: 757327217
-      BabySpriteSheet_export_4: -1204329246
-      BabySpriteSheet_export_5: -1466656484
-      BabySpriteSheet_export_6: -514677147
-      BabySpriteSheet_export_7: -1468475689
-      BabySpriteSheet_export_8: -1781940092
-      BabySpriteSheet_export_9: 1984303931
+      babySpriteSheet_0: -839035908
+      babySpriteSheet_1: 2020645375
+      babySpriteSheet_10: 501724936
+      babySpriteSheet_11: 424859580
+      babySpriteSheet_2: 2144604030
+      babySpriteSheet_3: 448999772
+      babySpriteSheet_4: -1818745110
+      babySpriteSheet_5: 1026392420
+      babySpriteSheet_6: 1600708922
+      babySpriteSheet_7: -169260776
+      babySpriteSheet_8: -19967412
+      babySpriteSheet_9: 1399041482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
