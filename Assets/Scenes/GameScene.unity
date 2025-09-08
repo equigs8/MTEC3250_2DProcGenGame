@@ -472,8 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 0}
   playerVisuals:
-    animController: {fileID: 0}
-    defaultSprite: {fileID: 0}
+    animController: {fileID: 9100000, guid: dacdc86aed73c49ef82cb2337215a429, type: 2}
+    defaultSprite: {fileID: -839035908, guid: c3e192fb186514ee88c62a3df9862b06, type: 3}
     color: {r: 0.14117643, g: 0.29628542, b: 1, a: 1}
     allowPlayerRotation: 1
   projectileVisuals:
@@ -482,15 +482,15 @@ MonoBehaviour:
     color: {r: 1, g: 0.8624264, b: 0, a: 1}
   tileVisuals:
     animController: {fileID: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: -6395250098418648000, guid: cb4181229264f4aaf9b424489ae53248, type: 3}
     color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   crateVisuals:
     animController: {fileID: 0}
     sprite: {fileID: 0}
     color: {r: 1, g: 0.540573, b: 0.23137254, a: 1}
   trapVisuals:
-    animController: {fileID: 0}
-    sprite: {fileID: 0}
+    animController: {fileID: 9100000, guid: 7480d2e20ea3f463aa7b3bc0f36edd3e, type: 2}
+    sprite: {fileID: -1627028964, guid: 18a7c5348a97f4622971dca98a0eefc3, type: 3}
     color: {r: 1, g: 0, b: 0.36335707, a: 1}
   blockVisuals:
     animController: {fileID: 0}
@@ -1130,7 +1130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 788.29, y: 242.96002}
+  m_AnchoredPosition: {x: 788.2899, y: 242.96002}
   m_SizeDelta: {x: -1641.39, y: -604.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086108518
