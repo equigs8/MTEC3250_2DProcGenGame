@@ -11,6 +11,7 @@ public class GridGenerator : MonoBehaviour
     [HideInInspector] public int columns;
     public Tile[,] tiles;
     public GameObject tilePrefab;
+    public bool isBackground = false;
 
     private Vector3 originPos;
 
@@ -27,7 +28,7 @@ public class GridGenerator : MonoBehaviour
 
     void Awake()
     {
-        if (inst == null) inst = this;
+       if (inst == null) inst = this;
         else Destroy(gameObject);
 
         originPos = GameProperties.inst.gridOriginPosition;
@@ -39,7 +40,11 @@ public class GridGenerator : MonoBehaviour
         crateCount = GameProperties.inst.crateCount;
 
         tiles = new Tile[rows, columns];
-
+        if (isBackground)
+        {
+            columns++;
+            rows++;
+        }
         MakeGrid();
         
     }

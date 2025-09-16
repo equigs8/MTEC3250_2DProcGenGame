@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum Type
 {
@@ -46,6 +47,8 @@ public class Tile : MonoBehaviour
     public int row;
     public int column;
 
+    public TileLocation tileLocation;
+
     //bools for setting tile properties 
     public bool isTrap;
     public bool isCrate;
@@ -86,12 +89,14 @@ public class Tile : MonoBehaviour
             case Type.DEFAULT:
                 ResetVisuals();
                 SetUpTileVisuals(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                rend.sortingOrder = 1;
                 break;
 
             case Type.CRATE:
                 ResetVisuals();
                 SetUpVisuals(visuals.crateVisuals.animController, visuals.crateVisuals.sprite, visuals.crateVisuals.color);
-
+                SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                rend.sortingOrder = 2;
                 isCrate = true;
                 isInaccessible = true;
                 break;
@@ -99,21 +104,24 @@ public class Tile : MonoBehaviour
             case Type.TRAP:
                 ResetVisuals();
                 SetUpVisuals(visuals.trapVisuals.animController, visuals.trapVisuals.sprite, visuals.trapVisuals.color);
-
+                SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                rend.sortingOrder = 2;
                 isTrap = true;
                 break;
 
             case Type.BLOCK:
                 ResetVisuals();
                 SetUpVisuals(visuals.blockVisuals.animController, visuals.blockVisuals.sprite, visuals.blockVisuals.color);
-
+                SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                rend.sortingOrder = 1;
                 isInaccessible = true;
                 break;
 
             case Type.GOAL:
                 ResetVisuals();
                 SetUpVisuals(visuals.goalVisuals.animController, visuals.goalVisuals.sprite, visuals.goalVisuals.color);
-
+                SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                rend.sortingOrder = 2;
                 isGoal = true;
                 break;
         }
@@ -147,13 +155,57 @@ public class Tile : MonoBehaviour
 
         AudioManager.inst.PlaySound(crateDestroyed, Sounds.inst.crateDestroyedVolume);
 
-        Init(Type.DEFAULT); 
+        Init(Type.DEFAULT);
 
         CrateDestroyed?.Invoke(this);
 
 
         isCrate = false;
         isInaccessible = false;
+    }
+
+    private void SetUpBackground(Sprite sprite, Sprite topLeft, Sprite topRight, Sprite bottomLeft, Sprite bottomRight, Sprite bottom, Sprite top, Sprite left, Sprite right)
+    {
+        SpriteRenderer backgroundRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
+        Debug.Log("Background Renderer: " + backgroundRenderer.gameObject.name);
+        tileLocation = getTileLocation();
+
+        switch (tileLocation)
+        {
+            case TileLocation.TOP_LEFT:
+                backgroundRenderer.sprite = topLeft;
+                break;
+            case TileLocation.TOP_RIGHT:
+                backgroundRenderer.sprite = topRight;
+                break;
+            case TileLocation.BOTTOM:
+                backgroundRenderer.sprite = bottom;
+                break;
+            case TileLocation.TOP:
+                backgroundRenderer.sprite = top;
+                break;
+            case TileLocation.LEFT:
+                backgroundRenderer.sprite = left;
+                break;
+            case TileLocation.RIGHT:
+                backgroundRenderer.sprite = right;
+                break;
+            case TileLocation.BOTTOM_LEFT:
+                backgroundRenderer.sprite = bottomLeft;
+                break;
+            case TileLocation.BOTTOM_RIGHT:
+                backgroundRenderer.sprite = bottomRight;
+                break;
+            case TileLocation.CENTER:
+                backgroundRenderer.sprite = sprite;
+                break;
+            default:
+                backgroundRenderer.sprite = sprite;
+                break;
+        }
+
+        backgroundRenderer.sortingOrder = 0;
+
     }
 
     private void SetUpVisuals(RuntimeAnimatorController _animController, Sprite _sprite, Color _color)
@@ -178,10 +230,10 @@ public class Tile : MonoBehaviour
 
     private void SetUpTileVisuals(Sprite sprite, Sprite topLeft, Sprite topRight, Sprite bottomLeft, Sprite bottomRight, Sprite bottom, Sprite top, Sprite left, Sprite right)
     {
-       
-        var TileLocation = this.getTileLocation();
 
-        switch (TileLocation)
+        tileLocation = getTileLocation();
+
+        switch (tileLocation)
         {
             case TileLocation.TOP_LEFT:
                 rend.sprite = topLeft;
@@ -222,7 +274,7 @@ public class Tile : MonoBehaviour
         tileAnimator = null;
         tileSprite = null;
         rend.sprite = squareSprite;
-        rend.color = Color.white;
+        rend.color = Color.white; 
 
         var anim = GetAnimator();
         anim.runtimeAnimatorController = null;
@@ -271,26 +323,45 @@ public class Tile : MonoBehaviour
 
     public TileLocation getTileLocation()
     {
-        Debug.Log(row + " " + column);
-        Debug.Log("Grid: "  + grid.rows + " " + grid.columns);
+        //Debug.Log(row + " " + column);
+        //Debug.Log("Grid: " + grid.rows + " " + grid.columns);
         if (row == 0 && column == 0)
+        {
             return TileLocation.BOTTOM_LEFT;
+        }
         else if (row == 0 && column == grid.columns - 1)
-            return TileLocation.BOTTOM_RIGHT;
-        else if (row == grid.rows - 1 && column == 0)
+        {
             return TileLocation.TOP_LEFT;
+        }
+        else if (row == grid.rows - 1 && column == 0)
+        {
+            return TileLocation.BOTTOM_RIGHT;
+        }
         else if (row == grid.rows - 1 && column == grid.columns - 1)
+        {
             return TileLocation.TOP_RIGHT;
+        }
         else if (row == 0)
-            return TileLocation.BOTTOM;
-        else if (row == grid.rows - 1)
-            return TileLocation.TOP;
-        else if (column == 0)
+        {
             return TileLocation.LEFT;
+        }
         else if (column == grid.columns - 1)
+        {
+            return TileLocation.TOP;
+        }
+        else if (column == 0)
+        {
+            return TileLocation.BOTTOM;
+        }
+        else if (row == grid.rows - 1)
+        {
             return TileLocation.RIGHT;
+        }
         else
+        {
             return TileLocation.CENTER;
+        }
+            
     }
 
 }

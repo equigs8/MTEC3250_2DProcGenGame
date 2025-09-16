@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour
                 animator.SetBool("Down", false);
                 animator.SetBool("Side", true);
 
-                rend.flipX = false;
+                rend.flipX = true;
             }
 
             if (_direction == Vector3.right)
@@ -50,7 +50,8 @@ public class PlayerControl : MonoBehaviour
                 animator.SetBool("Down", false);
                 animator.SetBool("Side", true);
 
-                rend.flipX = true;
+                Debug.Log("RIGHT");
+                rend.flipX = false;
             }
         }
         else //ONLY IF USING ROTATION TURNING
@@ -187,6 +188,7 @@ public class PlayerControl : MonoBehaviour
         visuals = VisualProperties.inst.playerVisuals;
 
         rend = GetComponentInChildren<SpriteRenderer>();
+        rend.sortingOrder = 3;
         grid = GridGenerator.inst;
 
         //This sets the player to grid place 0,0 at start
