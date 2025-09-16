@@ -60,6 +60,11 @@ public class GridGenerator : MonoBehaviour
                 tiles[r, c] = t;
                 tiles[r, c].name = "[" + r.ToString() + "," + c.ToString() + "]";
 
+                //I think colomn and row are reversed
+
+                t.row = r;
+                t.column = c;
+
                 t.Init(Type.DEFAULT);
             }
 

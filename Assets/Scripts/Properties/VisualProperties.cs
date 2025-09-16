@@ -30,6 +30,14 @@ public class VisualProperties : MonoBehaviour
     public class TileVisuals
     {
         public RuntimeAnimatorController animController;
+        public Sprite topRightCorner;
+        public Sprite topLeftCorner;
+        public Sprite bottomRightCorner;
+        public Sprite bottomLeftCorner;
+        public Sprite top;
+        public Sprite bottom;
+        public Sprite left;
+        public Sprite right;
         public Sprite sprite;
         public Color color;
              
@@ -50,6 +58,7 @@ public class VisualProperties : MonoBehaviour
         public RuntimeAnimatorController animController;
         public Sprite sprite;
         public Color color;
+        public bool isEnemy;
              
     }
 

@@ -11,6 +11,18 @@ public enum Type
     BLOCK,
     GOAL
 }
+public enum TileLocation
+{
+    TOP,
+    BOTTOM,
+    LEFT,
+    RIGHT,
+    TOP_LEFT,
+    TOP_RIGHT,
+    BOTTOM_LEFT,
+    BOTTOM_RIGHT,
+    CENTER
+}
 
 public class Tile : MonoBehaviour
 {
@@ -56,7 +68,7 @@ public class Tile : MonoBehaviour
 
     public void Init(Type _type)
     {
-        
+
         grid = GridGenerator.inst;
         visuals = VisualProperties.inst;
 
@@ -65,15 +77,15 @@ public class Tile : MonoBehaviour
 
         type = _type;
 
-        defaultAnimator = visuals.tileVisuals.animController != null? visuals.tileVisuals.animController:null;
-        defaultSprite = visuals.tileVisuals.sprite != null? visuals.tileVisuals.sprite:null;
+        defaultAnimator = visuals.tileVisuals.animController != null ? visuals.tileVisuals.animController : null;
+        defaultSprite = visuals.tileVisuals.sprite != null ? visuals.tileVisuals.sprite : null;
         defaultTileColor = visuals.tileVisuals.color;
 
         switch (type)
         {
             case Type.DEFAULT:
                 ResetVisuals();
-                SetUpVisuals(defaultAnimator, defaultSprite, defaultTileColor);
+                SetUpTileVisuals(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
                 break;
 
             case Type.CRATE:
@@ -104,7 +116,7 @@ public class Tile : MonoBehaviour
 
                 isGoal = true;
                 break;
-        }       
+        }
     }
 
 
@@ -119,7 +131,8 @@ public class Tile : MonoBehaviour
                 Destroy(collision.gameObject);
                 AudioManager.inst.PlaySound(projectileImpact, Sounds.inst.projectileImpactVolume);
                 DestroyCrate();
-            } else if (isInaccessible)
+            }
+            else if (isInaccessible)
             {
                 AudioManager.inst.PlaySound(projectileImpact, Sounds.inst.projectileImpactVolume);
                 ProjectileHit?.Invoke(collision.transform.position);
@@ -134,10 +147,10 @@ public class Tile : MonoBehaviour
 
         AudioManager.inst.PlaySound(crateDestroyed, Sounds.inst.crateDestroyedVolume);
 
-        Init(Type.DEFAULT);
+        Init(Type.DEFAULT); 
 
         CrateDestroyed?.Invoke(this);
-        
+
 
         isCrate = false;
         isInaccessible = false;
@@ -149,7 +162,7 @@ public class Tile : MonoBehaviour
         {
             tileAnimator = _animController;
             var anim = GetAnimator();
-            anim.runtimeAnimatorController = tileAnimator;        
+            anim.runtimeAnimatorController = tileAnimator;
         }
         else if (_sprite != null)
         {
@@ -157,14 +170,55 @@ public class Tile : MonoBehaviour
             rend.sprite = tileSprite;
         }
         else
-        {   tileColor = _color;
+        {
+            tileColor = _color;
             rend.color = tileColor;
+        }
+    }
+
+    private void SetUpTileVisuals(Sprite sprite, Sprite topLeft, Sprite topRight, Sprite bottomLeft, Sprite bottomRight, Sprite bottom, Sprite top, Sprite left, Sprite right)
+    {
+       
+        var TileLocation = this.getTileLocation();
+
+        switch (TileLocation)
+        {
+            case TileLocation.TOP_LEFT:
+                rend.sprite = topLeft;
+                break;
+            case TileLocation.TOP_RIGHT:
+                rend.sprite = topRight;
+                break;
+            case TileLocation.BOTTOM:
+                rend.sprite = bottom;
+                break;
+            case TileLocation.TOP:
+                rend.sprite = top;
+                break;
+            case TileLocation.LEFT:
+                rend.sprite = left;
+                break;
+            case TileLocation.RIGHT:
+                rend.sprite = right;
+                break;
+            case TileLocation.BOTTOM_LEFT:
+                rend.sprite = bottomLeft;
+                break;
+            case TileLocation.BOTTOM_RIGHT:
+                rend.sprite = bottomRight;
+                break;
+            case TileLocation.CENTER:
+                rend.sprite = sprite;
+                break;
+            default:
+                rend.sprite = sprite;
+                break;
         }
     }
 
     private void ResetVisuals()
     {
-      
+
         tileAnimator = null;
         tileSprite = null;
         rend.sprite = squareSprite;
@@ -213,6 +267,30 @@ public class Tile : MonoBehaviour
     public Vector2 ToVector()
     {
         return transform.position;
+    }
+
+    public TileLocation getTileLocation()
+    {
+        Debug.Log(row + " " + column);
+        Debug.Log("Grid: "  + grid.rows + " " + grid.columns);
+        if (row == 0 && column == 0)
+            return TileLocation.BOTTOM_LEFT;
+        else if (row == 0 && column == grid.columns - 1)
+            return TileLocation.BOTTOM_RIGHT;
+        else if (row == grid.rows - 1 && column == 0)
+            return TileLocation.TOP_LEFT;
+        else if (row == grid.rows - 1 && column == grid.columns - 1)
+            return TileLocation.TOP_RIGHT;
+        else if (row == 0)
+            return TileLocation.BOTTOM;
+        else if (row == grid.rows - 1)
+            return TileLocation.TOP;
+        else if (column == 0)
+            return TileLocation.LEFT;
+        else if (column == grid.columns - 1)
+            return TileLocation.RIGHT;
+        else
+            return TileLocation.CENTER;
     }
 
 }
