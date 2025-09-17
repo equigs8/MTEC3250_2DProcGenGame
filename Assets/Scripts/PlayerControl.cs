@@ -119,7 +119,9 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            //Animator code goes here if not
+            animator.SetBool("Fire", true);
+            Debug.Log("Firing");
+            //Animator code goes here for this state
         }
     }
 
@@ -272,6 +274,7 @@ public class PlayerControl : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                //FiringAnimationControl(direction);
                 FireProjectile();
             }
         }

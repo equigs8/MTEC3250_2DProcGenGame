@@ -113,7 +113,7 @@ public class Tile : MonoBehaviour
                 ResetVisuals();
                 SetUpVisuals(visuals.blockVisuals.animController, visuals.blockVisuals.sprite, visuals.blockVisuals.color);
                 SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
-                rend.sortingOrder = 1;
+                rend.sortingOrder = 2;
                 isInaccessible = true;
                 break;
 
