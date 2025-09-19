@@ -1097,7 +1097,46 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shaman_Explosion_0: 4961222395048539785
+      Shaman_Explosion_1: 3017861845273201357
+      Shaman_Explosion_10: -8418751257023155506
+      Shaman_Explosion_11: -1800941322971447697
+      Shaman_Explosion_12: -2670309429348623941
+      Shaman_Explosion_13: 1831218439217519802
+      Shaman_Explosion_14: 6630643829900740088
+      Shaman_Explosion_15: -6139535671418036320
+      Shaman_Explosion_16: -4515816540145190598
+      Shaman_Explosion_17: -7895493298215181181
+      Shaman_Explosion_18: 5806430479720824859
+      Shaman_Explosion_19: 5754040717433624268
+      Shaman_Explosion_2: -5400490987891379302
+      Shaman_Explosion_20: 4188128002197753771
+      Shaman_Explosion_21: 804346077177051669
+      Shaman_Explosion_22: 2004314935430265974
+      Shaman_Explosion_23: -4804322772461639083
+      Shaman_Explosion_24: -1231084899659169404
+      Shaman_Explosion_25: -6245605868891760209
+      Shaman_Explosion_26: -5260632824016920853
+      Shaman_Explosion_27: 999015540645205551
+      Shaman_Explosion_28: 4591449696708015256
+      Shaman_Explosion_29: 460591815084392249
+      Shaman_Explosion_3: 1886888942263279123
+      Shaman_Explosion_30: 7154733621040004217
+      Shaman_Explosion_31: 3236504147006610862
+      Shaman_Explosion_32: 6687650791671507519
+      Shaman_Explosion_33: -661628890980904823
+      Shaman_Explosion_34: 4127527176554954969
+      Shaman_Explosion_35: 8336759383900043302
+      Shaman_Explosion_36: -5843719314984820849
+      Shaman_Explosion_37: 4184440012836830886
+      Shaman_Explosion_38: -4521574701951902406
+      Shaman_Explosion_4: -4081241762736764596
+      Shaman_Explosion_5: -5015953332150706078
+      Shaman_Explosion_6: 7266659170131305138
+      Shaman_Explosion_7: 5644502175022139857
+      Shaman_Explosion_8: -2377754740967091073
+      Shaman_Explosion_9: 1316205598652385412
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gnoll_Bone_0: 7178713093860209260
+      Gnoll_Bone_1: 360680526231099707
+      Gnoll_Bone_2: 550268814474219417
+      Gnoll_Bone_3: 6362364807496379687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

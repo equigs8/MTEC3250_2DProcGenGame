@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gnoll_Throw_0: 3338158238980739151
+      Gnoll_Throw_1: -2067384575402926306
+      Gnoll_Throw_2: -160595336950163904
+      Gnoll_Throw_3: -3964070518452960703
+      Gnoll_Throw_4: -854947676147591430
+      Gnoll_Throw_5: 300149059791461274
+      Gnoll_Throw_6: -1012149324176442603
+      Gnoll_Throw_7: -3397328388657817414
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -647,7 +647,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shaman_Attack_0: 8304698914222804015
+      Shaman_Attack_1: -2825522866520789616
+      Shaman_Attack_10: -8767002328968897014
+      Shaman_Attack_11: -6223518376471051428
+      Shaman_Attack_12: -5778011885508000345
+      Shaman_Attack_13: 6911013686067732974
+      Shaman_Attack_14: 207655125567879694
+      Shaman_Attack_15: -3119623154464738632
+      Shaman_Attack_16: 5872770684519487457
+      Shaman_Attack_17: 8140543814092826267
+      Shaman_Attack_18: 3716994765520640582
+      Shaman_Attack_19: 3192830766868294960
+      Shaman_Attack_2: 5038320605023965420
+      Shaman_Attack_20: -4508320556689273740
+      Shaman_Attack_3: -410530152556559731
+      Shaman_Attack_4: -2010313345971853107
+      Shaman_Attack_5: -442241820017561264
+      Shaman_Attack_6: 3682438609574867969
+      Shaman_Attack_7: -3388064752691727476
+      Shaman_Attack_8: 8825499007706472279
+      Shaman_Attack_9: -1136055928087334165
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

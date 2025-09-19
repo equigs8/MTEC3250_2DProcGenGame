@@ -522,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Minotaur_Idle_0: 1493461491694850562
+      Minotaur_Idle_1: -489587302883474963
+      Minotaur_Idle_10: -3240876690877047164
+      Minotaur_Idle_11: 5599676189020957567
+      Minotaur_Idle_12: 595583443218780541
+      Minotaur_Idle_13: -7355515657995019707
+      Minotaur_Idle_14: -8890379609854304514
+      Minotaur_Idle_15: -7109874726794520961
+      Minotaur_Idle_2: -3542689133957496903
+      Minotaur_Idle_3: 8963159604660107459
+      Minotaur_Idle_4: -6402253455701395262
+      Minotaur_Idle_5: 1821799677798130885
+      Minotaur_Idle_6: -2735157845767108002
+      Minotaur_Idle_7: -146861625328688649
+      Minotaur_Idle_8: 8949149986567873228
+      Minotaur_Idle_9: -8823936828709944570
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

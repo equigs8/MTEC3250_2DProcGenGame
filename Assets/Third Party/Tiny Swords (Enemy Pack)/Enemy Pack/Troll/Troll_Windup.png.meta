@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Troll_Windup_0: -6167839292905373428
+      Troll_Windup_1: 6816997843693973687
+      Troll_Windup_2: -8589404799884237120
+      Troll_Windup_3: 5284046830386569634
+      Troll_Windup_4: 5846371092992265555
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

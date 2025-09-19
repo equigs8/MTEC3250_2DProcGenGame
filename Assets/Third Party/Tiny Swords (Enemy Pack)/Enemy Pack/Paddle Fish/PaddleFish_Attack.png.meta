@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PaddleFish_Attack_0: -8100449309816236063
+      PaddleFish_Attack_1: 4008594723403934605
+      PaddleFish_Attack_2: 2834136108322750898
+      PaddleFish_Attack_3: 6576830844556921328
+      PaddleFish_Attack_4: -6482113314406385810
+      PaddleFish_Attack_5: 8147167186769897949
+      PaddleFish_Attack_6: 1254229783641849068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PaddleFish_Idle_0: 7581072064079349556
+      PaddleFish_Idle_1: -6485060853666330873
+      PaddleFish_Idle_2: 2233234330911920115
+      PaddleFish_Idle_3: -2809635077860709328
+      PaddleFish_Idle_4: -8269355846501385506
+      PaddleFish_Idle_5: 332587392860197381
+      PaddleFish_Idle_6: -5165966368026263321
+      PaddleFish_Idle_7: 5456785106318667871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

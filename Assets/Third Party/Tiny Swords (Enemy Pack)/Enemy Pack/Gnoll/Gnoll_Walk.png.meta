@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gnoll_Walk_0: 2144306348594205820
+      Gnoll_Walk_1: 4748085004446025282
+      Gnoll_Walk_2: 6714633736922919927
+      Gnoll_Walk_3: -5884609075591523368
+      Gnoll_Walk_4: -1169297536214247824
+      Gnoll_Walk_5: 747096802065842712
+      Gnoll_Walk_6: -1016734687898979182
+      Gnoll_Walk_7: 7477702687696233401
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

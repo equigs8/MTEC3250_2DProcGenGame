@@ -522,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Troll_ClubPart1_0: 5550521924697024619
+      Troll_ClubPart1_1: -7983151222187990412
+      Troll_ClubPart1_10: 3340964587165669996
+      Troll_ClubPart1_11: 1192266734973125950
+      Troll_ClubPart1_12: 4594895366644418808
+      Troll_ClubPart1_13: -1539719485982305530
+      Troll_ClubPart1_14: 3055184922888346066
+      Troll_ClubPart1_15: 5102572438062616306
+      Troll_ClubPart1_2: -3078414893363241543
+      Troll_ClubPart1_3: 8189006651700893837
+      Troll_ClubPart1_4: 2770803503123058819
+      Troll_ClubPart1_5: 1067858422344453858
+      Troll_ClubPart1_6: -6421735939145680508
+      Troll_ClubPart1_7: 7471215834859167893
+      Troll_ClubPart1_8: 2073238345441870467
+      Troll_ClubPart1_9: 3410537430138208378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

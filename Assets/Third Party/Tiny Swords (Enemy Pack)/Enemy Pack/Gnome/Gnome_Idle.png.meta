@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gnome_Idle_0: 1007295932235086194
+      Gnome_Idle_1: -6462474597042634870
+      Gnome_Idle_2: 3140512186284047009
+      Gnome_Idle_3: -8541397286663853589
+      Gnome_Idle_4: 5692699903111671337
+      Gnome_Idle_5: 8772499688528071466
+      Gnome_Idle_6: -8525848438070304202
+      Gnome_Idle_7: -3577524342682305666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

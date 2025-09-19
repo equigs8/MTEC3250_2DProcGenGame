@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shaman_Projectile_0: 1115218437339040004
+      Shaman_Projectile_1: 5209753318256627929
+      Shaman_Projectile_2: 5851938201951229095
+      Shaman_Projectile_3: 637651232944614169
+      Shaman_Projectile_4: -6523787022475864202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

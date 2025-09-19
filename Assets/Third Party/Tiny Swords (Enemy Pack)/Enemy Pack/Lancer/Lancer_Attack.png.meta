@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lancer_Attack_0: -8512925642597562433
+      Lancer_Attack_1: -3635839453082373933
+      Lancer_Attack_10: 773807238918821904
+      Lancer_Attack_11: -6643340690899537417
+      Lancer_Attack_12: -595104100363766968
+      Lancer_Attack_13: -7315085949056498102
+      Lancer_Attack_14: -2608302267379092823
+      Lancer_Attack_2: 1057887045403753893
+      Lancer_Attack_3: 9171189906917871255
+      Lancer_Attack_4: -7591055392064068260
+      Lancer_Attack_5: -6665944773161231278
+      Lancer_Attack_6: 8520313037693922510
+      Lancer_Attack_7: 8864853908687227621
+      Lancer_Attack_8: -8372296311607064468
+      Lancer_Attack_9: 7334626886376915892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

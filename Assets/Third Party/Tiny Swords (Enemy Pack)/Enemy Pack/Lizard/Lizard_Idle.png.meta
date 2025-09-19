@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lizard_Idle_0: -4070170667557269686
+      Lizard_Idle_1: -7577688254669970367
+      Lizard_Idle_2: 1511913880984586023
+      Lizard_Idle_3: -4105779651486177730
+      Lizard_Idle_4: 5883771140313784400
+      Lizard_Idle_5: -2412201491399406223
+      Lizard_Idle_6: -95018485591707510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shaman_Idle_0: -493310475744596764
+      Shaman_Idle_1: -873321116242878267
+      Shaman_Idle_10: -2636444600175486806
+      Shaman_Idle_11: 4445612433970210214
+      Shaman_Idle_2: -6235809038419256129
+      Shaman_Idle_3: -2612597594459788785
+      Shaman_Idle_4: 87698195039186918
+      Shaman_Idle_5: -7133801238358545687
+      Shaman_Idle_6: 3682433274791983212
+      Shaman_Idle_7: 2902144569901462769
+      Shaman_Idle_8: 236598241697130174
+      Shaman_Idle_9: -1172933881773751090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

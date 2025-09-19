@@ -472,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Turtle_Attack_0: 3613729570401475894
+      Turtle_Attack_1: -5015087672504817642
+      Turtle_Attack_10: -5089285882877847484
+      Turtle_Attack_11: -4827771225783844671
+      Turtle_Attack_12: -5315054816000932549
+      Turtle_Attack_13: 6270719483574021382
+      Turtle_Attack_2: 7097972545778820332
+      Turtle_Attack_3: 1385163627209120328
+      Turtle_Attack_4: 4341384354867461299
+      Turtle_Attack_5: 3634927157037229467
+      Turtle_Attack_6: 8400155566935374283
+      Turtle_Attack_7: -643103798183169404
+      Turtle_Attack_8: -7252064970853581026
+      Turtle_Attack_9: -3439796003394616455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

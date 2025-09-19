@@ -119,10 +119,24 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            animator.SetBool("Fire", true);
-            Debug.Log("Firing");
+
+            //If animation is not still playing then play again.
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Fire"))
+            {
+                animator.SetTrigger("Fire");
+                Debug.Log("Firing");
+
+                StartCoroutine(WaitTillEndOfAnimation(.9f));
+            } 
+            
             //Animator code goes here for this state
         }
+    }
+
+    private IEnumerator WaitTillEndOfAnimation(float time)
+    {
+        yield return new WaitForSeconds(time);
+        FireProjectile();
     }
 
     private void EnteredTrap(Vector3 _direction)
@@ -274,8 +288,8 @@ public class PlayerControl : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //FiringAnimationControl(direction);
-                FireProjectile();
+                FiringAnimationControl(direction);
+                //FireProjectile();
             }
         }
         
@@ -337,7 +351,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void FireProjectile()
+    public void FireProjectile()
     {
         AudioManager.inst.PlaySound(firing, Sounds.inst.fireProjectileVolume);
         var pos = transform.position + (direction * 0.5f);
@@ -346,7 +360,7 @@ public class PlayerControl : MonoBehaviour
         pjt.speed = projectileSpeed;
         pjt.direction = direction;
         pjt.Init();
-        FiringAnimationControl(direction);
+        //FiringAnimationControl(direction);
     }
 
     //We move the player in a coroutine by sending a start and an end pos and just lerping between then

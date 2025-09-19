@@ -547,7 +547,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Troll_Dead_0: -6954100555721609758
+      Troll_Dead_1: 1576912287648024516
+      Troll_Dead_10: 4707996089777676233
+      Troll_Dead_11: 1870701031606913125
+      Troll_Dead_12: 8806947478897107550
+      Troll_Dead_13: 2804251345575836912
+      Troll_Dead_14: 8546651435131042107
+      Troll_Dead_15: 7140820651184576501
+      Troll_Dead_16: -5618648722886962649
+      Troll_Dead_2: -8973113328519082999
+      Troll_Dead_3: 4831364281884084511
+      Troll_Dead_4: 6955004092497268851
+      Troll_Dead_5: -2603755231103321341
+      Troll_Dead_6: -8998228157058827754
+      Troll_Dead_7: 6823996420695084309
+      Troll_Dead_8: 4468737239794561177
+      Troll_Dead_9: -9076127804076524137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

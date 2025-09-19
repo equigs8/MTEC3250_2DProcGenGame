@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Boat_Idle_0: 6161816635491882707
+      Boat_Idle_1: 5587901902507797589
+      Boat_Idle_2: 5386769243147980573
+      Boat_Idle_3: -913276284504280237
+      Boat_Idle_4: -1543534895457406598
+      Boat_Idle_5: 4648445442389332319
+      Boat_Idle_6: -4543072844462588810
+      Boat_Idle_7: 726911693686558231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

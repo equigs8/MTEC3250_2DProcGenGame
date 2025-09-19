@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Minotaur_Guard_0: 1782860331577667975
+      Minotaur_Guard_1: 3319984445015700558
+      Minotaur_Guard_10: 7151108387192988659
+      Minotaur_Guard_2: -3836846384943393274
+      Minotaur_Guard_3: -9132669109250678921
+      Minotaur_Guard_4: 753921178762626291
+      Minotaur_Guard_5: 8899844926822369905
+      Minotaur_Guard_6: -5676361975811264155
+      Minotaur_Guard_7: -2960363975642087349
+      Minotaur_Guard_8: -9210324977111767322
+      Minotaur_Guard_9: -8982735530145835071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

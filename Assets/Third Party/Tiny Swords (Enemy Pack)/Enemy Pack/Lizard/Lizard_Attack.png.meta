@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lizard_Attack_0: -9035493635800025798
+      Lizard_Attack_1: 5933308372908972608
+      Lizard_Attack_10: 8582287821124172010
+      Lizard_Attack_2: 271652990466493134
+      Lizard_Attack_3: -6068879925243277278
+      Lizard_Attack_4: 6910780768405012884
+      Lizard_Attack_5: -2799061960808947749
+      Lizard_Attack_6: -8547893444141578800
+      Lizard_Attack_7: -7503625786087096184
+      Lizard_Attack_8: 6508302801143383884
+      Lizard_Attack_9: 5185039848528297536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

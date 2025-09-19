@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gnome_Attack_0: 1684235927116704127
+      Gnome_Attack_1: -6919943294291310031
+      Gnome_Attack_10: -8244049802278490348
+      Gnome_Attack_2: 4183083214698654351
+      Gnome_Attack_3: 1122668993501972724
+      Gnome_Attack_4: -6157127795386301630
+      Gnome_Attack_5: -5709073324071589923
+      Gnome_Attack_6: -7342594445775000793
+      Gnome_Attack_7: 7416634282607759190
+      Gnome_Attack_8: -5962414069082923183
+      Gnome_Attack_9: -1767145489687688418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

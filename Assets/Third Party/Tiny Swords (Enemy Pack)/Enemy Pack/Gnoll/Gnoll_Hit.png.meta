@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gnoll_Hit_0: 1295831359793425650
+      Gnoll_Hit_1: -4681933013404252768
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

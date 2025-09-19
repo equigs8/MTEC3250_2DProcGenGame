@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PaddleFish_Run_0: 7206519255651833479
+      PaddleFish_Run_1: -3353233131205743866
+      PaddleFish_Run_2: -7666382304803823762
+      PaddleFish_Run_3: 6877229929625872816
+      PaddleFish_Run_4: 1066738513809693257
+      PaddleFish_Run_5: -6583819675886926066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

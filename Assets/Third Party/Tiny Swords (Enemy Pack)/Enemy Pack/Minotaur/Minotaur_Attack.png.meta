@@ -697,7 +697,30 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Minotaur_Attack_0: -3613403360181717043
+      Minotaur_Attack_1: 7611302113551885315
+      Minotaur_Attack_10: 7310803369185443585
+      Minotaur_Attack_11: 7796041697892271653
+      Minotaur_Attack_12: -9018356985376652693
+      Minotaur_Attack_13: 1560805831989386921
+      Minotaur_Attack_14: 430331793034041554
+      Minotaur_Attack_15: 2426279675723468700
+      Minotaur_Attack_16: -5826338529827986781
+      Minotaur_Attack_17: 4276000547814025274
+      Minotaur_Attack_18: -8035655150014984529
+      Minotaur_Attack_19: -5838341173741656548
+      Minotaur_Attack_2: 98770332225808575
+      Minotaur_Attack_20: -6559118060019264525
+      Minotaur_Attack_21: 6451547977299981285
+      Minotaur_Attack_22: -6043673938841338716
+      Minotaur_Attack_3: 5587139985805045285
+      Minotaur_Attack_4: -3720403400318764825
+      Minotaur_Attack_5: 5764427361167915564
+      Minotaur_Attack_6: -8861686060935859179
+      Minotaur_Attack_7: -1556127151124700168
+      Minotaur_Attack_8: 9009111462706487232
+      Minotaur_Attack_9: -4768919873856835203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

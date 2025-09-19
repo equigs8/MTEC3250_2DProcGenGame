@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lizard_Run_0: -2949093075023951328
+      Lizard_Run_1: 6155225618276468300
+      Lizard_Run_2: -3306412654273182118
+      Lizard_Run_3: -946765646557962331
+      Lizard_Run_4: -5987072993317950802
+      Lizard_Run_5: 308462971345494500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shaman_Run_0: -1516606137875054919
+      Shaman_Run_1: -4636269624067035468
+      Shaman_Run_2: -2829615651170692943
+      Shaman_Run_3: -6842481794725325692
+      Shaman_Run_4: 5673809037593661836
+      Shaman_Run_5: -7224513674276806630
+      Shaman_Run_6: 309662817024538191
+      Shaman_Run_7: -7364288480984202213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

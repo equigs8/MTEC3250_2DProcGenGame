@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HarpoonFish_Run_0: -5445052611905570623
+      HarpoonFish_Run_1: -7347731639233511296
+      HarpoonFish_Run_2: 7079221592670650581
+      HarpoonFish_Run_3: -962750894682188652
+      HarpoonFish_Run_4: -5309227702758776139
+      HarpoonFish_Run_5: 8516958411369342763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

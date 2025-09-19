@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Spider_Idle_0: 1974895838090585116
+      Spider_Idle_1: 1829324309001267361
+      Spider_Idle_2: 3062135226306828002
+      Spider_Idle_3: -2704754160999275011
+      Spider_Idle_4: 8955776280775515899
+      Spider_Idle_5: 3857004015402991681
+      Spider_Idle_6: 3212631659527141565
+      Spider_Idle_7: 4979347207375379644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

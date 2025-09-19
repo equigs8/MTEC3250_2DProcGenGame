@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Skull_Guard_0: 4585887404816075010
+      Skull_Guard_1: 1458890408966233160
+      Skull_Guard_2: 1440176955350386689
+      Skull_Guard_3: -5585492037162905027
+      Skull_Guard_4: 5034910292777789398
+      Skull_Guard_5: -3511898316428907538
+      Skull_Guard_6: 4506625478859674692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

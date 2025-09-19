@@ -822,7 +822,35 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Panda_Attack_0: 158003165143877128
+      Panda_Attack_1: 1126506391666030408
+      Panda_Attack_10: -4922884865592866655
+      Panda_Attack_11: -4306013704929678411
+      Panda_Attack_12: -3545663009709488715
+      Panda_Attack_13: 5424734180103405332
+      Panda_Attack_14: -6590332689311356861
+      Panda_Attack_15: 8282788702065511242
+      Panda_Attack_16: -8729407288542769756
+      Panda_Attack_17: -3852653635243085709
+      Panda_Attack_18: 6519834028002360347
+      Panda_Attack_19: -3793599431280877753
+      Panda_Attack_2: -4083268701511690494
+      Panda_Attack_20: 272557472148440194
+      Panda_Attack_21: -1927201539574385122
+      Panda_Attack_22: 2163276520106618549
+      Panda_Attack_23: 7170583010144791094
+      Panda_Attack_24: -474065082861749795
+      Panda_Attack_25: -6955389080790873400
+      Panda_Attack_26: 3591495341545289606
+      Panda_Attack_27: 2014065801972455103
+      Panda_Attack_3: 3170853755713148873
+      Panda_Attack_4: -3497400840786891600
+      Panda_Attack_5: 5863409225404250627
+      Panda_Attack_6: 5283403763830970972
+      Panda_Attack_7: -1752915488331297659
+      Panda_Attack_8: -7841034199183668136
+      Panda_Attack_9: -7463726512041192925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

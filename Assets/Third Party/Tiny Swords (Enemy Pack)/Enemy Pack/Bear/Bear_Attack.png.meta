@@ -572,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bear_Attack_0: -8932154214229173346
+      Bear_Attack_1: 2073371222263828158
+      Bear_Attack_10: 3678198770105357404
+      Bear_Attack_11: 8306477255347607742
+      Bear_Attack_12: -8582142722302025496
+      Bear_Attack_13: -1237699710311789788
+      Bear_Attack_14: -7967221671739899286
+      Bear_Attack_15: -7025009248204488500
+      Bear_Attack_16: 2391858134441400050
+      Bear_Attack_17: -5082475918560168563
+      Bear_Attack_2: 8475008236743639273
+      Bear_Attack_3: 895329416020127910
+      Bear_Attack_4: 1804751173891814793
+      Bear_Attack_5: -7951214152837274951
+      Bear_Attack_6: 4459342991175242049
+      Bear_Attack_7: -4860180798509038561
+      Bear_Attack_8: -5949881908268357413
+      Bear_Attack_9: -2329213147699635018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

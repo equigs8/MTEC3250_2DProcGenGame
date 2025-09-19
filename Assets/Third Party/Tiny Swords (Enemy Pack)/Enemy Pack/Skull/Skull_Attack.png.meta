@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Skull_Attack_0: -3801873587596287892
+      Skull_Attack_1: 8453705797323160443
+      Skull_Attack_2: -2608325685640080977
+      Skull_Attack_3: 5677903959620856961
+      Skull_Attack_4: 7921673209264098965
+      Skull_Attack_5: -8617964307106720966
+      Skull_Attack_6: -2380647909382967109
+      Skull_Attack_7: 5068088641658331535
+      Skull_Attack_8: 3566095683547181339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

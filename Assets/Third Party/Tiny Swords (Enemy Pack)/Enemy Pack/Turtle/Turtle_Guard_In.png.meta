@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Turtle_Guard_In_0: -7175382299193244127
+      Turtle_Guard_In_1: 7298396252159053124
+      Turtle_Guard_In_2: 6678901975303812583
+      Turtle_Guard_In_3: 463892349402099179
+      Turtle_Guard_In_4: 6386175343137009580
+      Turtle_Guard_In_5: 4996188150437600461
+      Turtle_Guard_In_6: -8855256134687364786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
