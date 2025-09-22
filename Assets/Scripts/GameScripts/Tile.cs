@@ -89,6 +89,7 @@ public class Tile : MonoBehaviour
             case Type.DEFAULT:
                 ResetVisuals();
                 SetUpTileVisuals(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                DisableBackgroundTile();
                 rend.sortingOrder = 1;
                 break;
 
@@ -164,6 +165,12 @@ public class Tile : MonoBehaviour
         isInaccessible = false;
     }
 
+
+    private void DisableBackgroundTile()
+    {
+        SpriteRenderer backgroundRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
+        backgroundRenderer.enabled = false;
+    }
     private void SetUpBackground(Sprite sprite, Sprite topLeft, Sprite topRight, Sprite bottomLeft, Sprite bottomRight, Sprite bottom, Sprite top, Sprite left, Sprite right)
     {
         SpriteRenderer backgroundRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
