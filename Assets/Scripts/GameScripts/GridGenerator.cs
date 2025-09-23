@@ -28,7 +28,7 @@ public class GridGenerator : MonoBehaviour
 
     void Awake()
     {
-       if (inst == null) inst = this;
+        if (inst == null) inst = this;
         else Destroy(gameObject);
 
         originPos = GameProperties.inst.gridOriginPosition;
@@ -46,7 +46,21 @@ public class GridGenerator : MonoBehaviour
             rows++;
         }
         MakeGrid();
-        
+        CheckTileGroupings();
+    }
+
+
+
+    private void CheckTileGroupings()
+    {
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < columns; c++)
+            {
+                Tile currentTile = tiles[r, c];
+                currentTile.UpdateSpriteBasedOnNeighbors();
+            }
+        }
     }
 
     private void MakeGrid()
@@ -57,7 +71,7 @@ public class GridGenerator : MonoBehaviour
             {
                 float sizeX = tilePrefab.GetComponent<SpriteRenderer>().size.x;
                 float sizeY = tilePrefab.GetComponent<SpriteRenderer>().size.y;
-                Vector2 pos = new Vector3(originPos.x + sizeX * r, originPos.y + sizeY * c,0);
+                Vector2 pos = new Vector3(originPos.x + sizeX * r, originPos.y + sizeY * c, 0);
 
                 GameObject o = Instantiate(tilePrefab, pos, Quaternion.identity, transform);
                 Tile t = o.GetComponent<Tile>();

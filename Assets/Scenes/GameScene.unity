@@ -2911,10 +2911,10 @@ MonoBehaviour:
     animController: {fileID: 0}
     topRightCorner: {fileID: 1178382249724702698, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
     topLeftCorner: {fileID: -95462766675842740, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
-    bottomRightCorner: {fileID: -5218798970355385335, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
-    bottomLeftCorner: {fileID: -2382385224736819306, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
+    bottomRightCorner: {fileID: -7908850926029520656, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
+    bottomLeftCorner: {fileID: -3404989037935009201, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
     top: {fileID: 5851868318510321102, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
-    bottom: {fileID: -5674972345067695881, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
+    bottom: {fileID: 5224578077627119030, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
     left: {fileID: 3055282194053414296, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
     right: {fileID: -7506416844830765299, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
     sprite: {fileID: 6204940230226850222, guid: 4936cee2be8dbc248aa338a8f785bc06, type: 3}
@@ -2922,6 +2922,10 @@ MonoBehaviour:
   crateVisuals:
     animController: {fileID: 0}
     sprite: {fileID: -4018474691228133916, guid: a4e0847b75d769e4c9933b1707b4bb07, type: 3}
+    enemySprite1Tile: {fileID: 0}
+    enemySprite2: {fileID: -594197781322936934, guid: dcae9a9f0ca5dca4da928082aa047972, type: 3}
+    enemySprite3: {fileID: 0}
+    enemySprite4: {fileID: 7992857587896730493, guid: 4e01d7e757741dc49846a745a0e8ae78, type: 3}
     color: {r: 1, g: 0.540573, b: 0.23137254, a: 1}
   trapVisuals:
     animController: {fileID: 0}
@@ -2930,7 +2934,7 @@ MonoBehaviour:
     isEnemy: 0
   blockVisuals:
     animController: {fileID: 0}
-    sprite: {fileID: -5391499930902814504, guid: 072dfbe9802c75747964e6c4e9192b89, type: 3}
+    sprite: {fileID: 6529909481953654932, guid: 05dca816610d71b449a7ff289899566a, type: 3}
     color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
   goalVisuals:
     animController: {fileID: 0}
@@ -3222,7 +3226,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -10, y: -6, z: 0}
   m_Size: {x: 20, y: 6, z: 1}
-  m_TileAnchor: {x: 2.125, y: 2, z: 0}
+  m_TileAnchor: {x: 2, y: 2, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1

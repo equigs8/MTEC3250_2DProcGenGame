@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Runtime.InteropServices;
+using NUnit.Framework;
 
 public enum Type
 {
@@ -54,7 +56,7 @@ public class Tile : MonoBehaviour
     public bool isCrate;
     public bool isInaccessible;
     public bool isGoal;
-
+    public bool isChecked;
     private VisualProperties visuals;
 
     private AudioClip projectileImpact;
@@ -71,7 +73,7 @@ public class Tile : MonoBehaviour
 
     public void Init(Type _type)
     {
-
+        isChecked = false;
         grid = GridGenerator.inst;
         visuals = VisualProperties.inst;
 
@@ -89,7 +91,8 @@ public class Tile : MonoBehaviour
             case Type.DEFAULT:
                 ResetVisuals();
                 SetUpTileVisuals(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
-                DisableBackgroundTile();
+                //DisableBackgroundTile();
+                SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
                 rend.sortingOrder = 1;
                 break;
 
@@ -166,6 +169,7 @@ public class Tile : MonoBehaviour
     }
 
 
+
     private void DisableBackgroundTile()
     {
         SpriteRenderer backgroundRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
@@ -174,7 +178,7 @@ public class Tile : MonoBehaviour
     private void SetUpBackground(Sprite sprite, Sprite topLeft, Sprite topRight, Sprite bottomLeft, Sprite bottomRight, Sprite bottom, Sprite top, Sprite left, Sprite right)
     {
         SpriteRenderer backgroundRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
-        Debug.Log("Background Renderer: " + backgroundRenderer.gameObject.name);
+        //Debug.Log("Background Renderer: " + backgroundRenderer.gameObject.name);
         tileLocation = getTileLocation();
 
         switch (tileLocation)
@@ -281,7 +285,7 @@ public class Tile : MonoBehaviour
         tileAnimator = null;
         tileSprite = null;
         rend.sprite = squareSprite;
-        rend.color = Color.white; 
+        rend.color = Color.white;
 
         var anim = GetAnimator();
         anim.runtimeAnimatorController = null;
@@ -368,7 +372,94 @@ public class Tile : MonoBehaviour
         {
             return TileLocation.CENTER;
         }
-            
+
+    }
+
+    public void UpdateSpriteBasedOnNeighbors()
+    {
+        if (isChecked) return;
+        if(type != Type.CRATE) return;
+
+        Tile topNeighbor = HasNeighborOfType(row, column + 1, type);
+        Tile bottomNeighbor = HasNeighborOfType(row, column - 1, type);
+        Tile leftNeighbor = HasNeighborOfType(row - 1, column , type);
+        Tile rightNeighbor = HasNeighborOfType(row + 1, column, type);
+
+        this.isChecked = true;
+
+        if (topNeighbor != null)
+        {
+
+            //Four tiles sprite
+            //Four Tile square where this sprite is in the bottom left
+
+            if (HasNeighborOfType(row + 1, column + 1, type) != null && rightNeighbor != null)
+            {
+                // Debug.Log("Tile : " + name);
+                // Debug.Log("Top neighbor: " + topNeighbor.name);
+                // Debug.Log("Bottom Right neighbor: " + rightNeighbor.name);
+                // Debug.Log("Top Right neighbor: " + HasNeighborOfType(row + 1, column + 1, type).name + " with tile type: " + topNeighbor.HasNeighborOfType(row + 1, column, type).type);
+
+                // topNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
+                // HasNeighborOfType(row + 1, column+1, type).GetComponent<SpriteRenderer>().color = Color.blue;
+                // rightNeighbor.GetComponent<SpriteRenderer>().color = Color.yellow;
+                // rend.color = Color.red;
+
+                //Set sprites to one sprite
+                topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
+                HasNeighborOfType(row + 1, column + 1, type).GetComponent<SpriteRenderer>().sprite = null;
+                rightNeighbor.GetComponent<SpriteRenderer>().sprite = null;
+                rend.sprite = visuals.crateVisuals.enemySprite4;
+
+                topNeighbor.isChecked = true;
+                HasNeighborOfType(row + 1, column + 1, type).isChecked = true;
+                rightNeighbor.isChecked = true;
+
+                Debug.Log("Four tiles square");
+                return;
+            }
+            else
+            {
+                topNeighbor.isChecked = true;
+                topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
+                // topNeighbor.GetComponent<SpriteRenderer>().color = Color.red;
+                rend.sprite = visuals.crateVisuals.enemySprite2;
+                
+            }
+            //Four Tile square where this sprite is in the top left
+            // if (bottomNeighbor.HasNeighborOfType(row - 1, column, type) != null && rightNeighbor != null)
+            // {
+            //     bottomNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
+            //     bottomNeighbor.HasNeighborOfType(row - 1, column, type).GetComponent<SpriteRenderer>().color = Color.green;
+            //     rightNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
+            //     rend.color = Color.green;
+            //     Debug.Log("Four tiles square");
+            //     return;
+            // }
+
+            // Debug.Log("Four tiles sprite");
+            // rend.color = Color.red;
+            return;
+
+            //Two tiles Tall sprite
+
+            // Debug.Log("Two tiles Tall sprite");
+            // topNeighbor.GetComponent<SpriteRenderer>().color = Color.blue;
+            // rend.color = Color.red;
+        }
+
+    }
+
+    private Tile HasNeighborOfType(int row, int column, Type type)
+    {
+        if (row >= 0 && row < grid.rows && column >= 0 && column < grid.columns)
+        {
+            if (grid.tiles[row, column].type == type && !grid.tiles[row, column].isChecked)
+            {
+                return grid.tiles[row, column];
+            }
+        }
+        return null;
     }
 
 }
