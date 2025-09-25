@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Runtime.InteropServices;
 using NUnit.Framework;
+using UnityEditor.Experimental.GraphView;
 
 public enum Type
 {
@@ -45,6 +46,8 @@ public class Tile : MonoBehaviour
 
     private SpriteRenderer rend;
 
+    public bool isEnemy = false;
+
     //For storing the row and column of the tile (for easy identification)
     public int row;
     public int column;
@@ -64,6 +67,8 @@ public class Tile : MonoBehaviour
 
     public static event Action<Tile> CrateDestroyed;
     public static event Action<Vector3> ProjectileHit;
+
+    public BoxCollider2D tileBoxCollider;
 
     private void Awake()
     {
@@ -85,6 +90,8 @@ public class Tile : MonoBehaviour
         defaultAnimator = visuals.tileVisuals.animController != null ? visuals.tileVisuals.animController : null;
         defaultSprite = visuals.tileVisuals.sprite != null ? visuals.tileVisuals.sprite : null;
         defaultTileColor = visuals.tileVisuals.color;
+
+        tileBoxCollider = GetComponent<BoxCollider2D>();
 
         switch (type)
         {
@@ -137,7 +144,13 @@ public class Tile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            if (isCrate)
+            if (isEnemy)
+            {
+                ProjectileHit?.Invoke(collision.transform.position);
+                gameObject.GetComponent<EnemyController>().TakeDamage();
+                Destroy(collision.gameObject);
+            }
+            else if (isCrate)
             {
                 ProjectileHit?.Invoke(collision.transform.position);
                 Destroy(collision.gameObject);
@@ -151,6 +164,23 @@ public class Tile : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+    }
+
+    public void resetEnemyTile()
+    {
+        if (!isEnemy) return;
+
+        DestroyCrate();
+
+        resetBoxCollider();
+        isEnemy = false;
+       
+    }
+
+    public void resetBoxCollider()
+    {
+        tileBoxCollider.size = new Vector2(1, 1);
+        tileBoxCollider.offset = new Vector2(0, 0);
     }
 
     public void DestroyCrate()
@@ -392,13 +422,14 @@ public class Tile : MonoBehaviour
 
             //Four tiles sprite
             //Four Tile square where this sprite is in the bottom left
-
-            if (HasNeighborOfType(row + 1, column + 1, type) != null && rightNeighbor != null)
+            Tile topRightCorner = HasNeighborOfType(row + 1, column + 1, type);
+            if (topRightCorner != null && rightNeighbor != null)
             {
+                Debug.Log("Neighbor: " + topRightCorner);
                 // Debug.Log("Tile : " + name);
                 // Debug.Log("Top neighbor: " + topNeighbor.name);
                 // Debug.Log("Bottom Right neighbor: " + rightNeighbor.name);
-                // Debug.Log("Top Right neighbor: " + HasNeighborOfType(row + 1, column + 1, type).name + " with tile type: " + topNeighbor.HasNeighborOfType(row + 1, column, type).type);
+                // Debug.Log("Top Right neighbor: " + topRightCorner.name + " with tile type: " + topNeighbor.HasNeighborOfType(row + 1, column, type).type);
 
                 // topNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
                 // HasNeighborOfType(row + 1, column+1, type).GetComponent<SpriteRenderer>().color = Color.blue;
@@ -406,16 +437,29 @@ public class Tile : MonoBehaviour
                 // rend.color = Color.red;
 
                 //Set sprites to one sprite
-                topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
-                HasNeighborOfType(row + 1, column + 1, type).GetComponent<SpriteRenderer>().sprite = null;
-                rightNeighbor.GetComponent<SpriteRenderer>().sprite = null;
+                // topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
+                // topRightCorner.GetComponent<SpriteRenderer>().sprite = null;
+                // rightNeighbor.GetComponent<SpriteRenderer>().sprite = null;
+                TurnOffVisuals(topNeighbor);
+                TurnOffVisuals(topRightCorner);
+                TurnOffVisuals(rightNeighbor);
+
+
                 rend.sprite = visuals.crateVisuals.enemySprite4;
 
                 topNeighbor.isChecked = true;
-                HasNeighborOfType(row + 1, column + 1, type).isChecked = true;
+                topRightCorner.isChecked = true;
                 rightNeighbor.isChecked = true;
 
                 Debug.Log("Four tiles square");
+
+                EnemyController enemyController = gameObject.AddComponent<EnemyController>();
+                enemyController.Init(new List<Tile>() { this, topNeighbor, topRightCorner, rightNeighbor });
+
+                
+                tileBoxCollider.offset = new Vector2(0.5f, 0.5f);
+                tileBoxCollider.size = new Vector2(2, 2);
+
                 return;
             }
             else
@@ -450,6 +494,11 @@ public class Tile : MonoBehaviour
 
     }
 
+    private void TurnOffVisuals(Tile tile)
+    {
+        tile.GetComponent<SpriteRenderer>().sprite = null;
+        tile.GetComponent<BoxCollider2D>().enabled = false;
+    }
     private Tile HasNeighborOfType(int row, int column, Type type)
     {
         if (row >= 0 && row < grid.rows && column >= 0 && column < grid.columns)
