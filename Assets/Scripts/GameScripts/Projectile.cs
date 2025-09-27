@@ -10,12 +10,17 @@ public class Projectile : MonoBehaviour
     private Color color;
     private Sprite sprite;
     private RuntimeAnimatorController animator;
+    private Transform gfxTransform;
 
 
     public void Init()
     {
+        //Debug.Log("Direction: " + direction);
         rend = GetComponentInChildren<SpriteRenderer>();
+        gfxTransform = GetComponentsInChildren<Transform>()[1];
+        //Debug.Log("Gfx Transform: " + gfxTransform.gameObject.name);
         visuals = VisualProperties.inst.projectileVisuals;
+        updateFacingDirection();
         if (visuals.animController != null)
         {
             animator = visuals.animController;
@@ -33,7 +38,33 @@ public class Projectile : MonoBehaviour
             rend.color = color;
         }
     }
+    private void updateFacingDirection()
+    {
 
+        if (direction.x > 0)
+        {
+
+            //rend.flipX = false;
+            gfxTransform.rotation = Quaternion.Euler(0, 0, -180);
+
+        }
+        else if (direction.x < 0)
+        {
+            // rend.flipX = true;
+            // rend.flipY = true;
+            gfxTransform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        if (direction.y < 0)
+        {
+            // rend.flipY = true;
+            gfxTransform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        else if (direction.y > 0)
+        {
+            // rend.flipY = false;
+            gfxTransform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+    }
 
     void Update()
     {

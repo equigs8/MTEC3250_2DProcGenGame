@@ -425,27 +425,14 @@ public class Tile : MonoBehaviour
             Tile topRightCorner = HasNeighborOfType(row + 1, column + 1, type);
             if (topRightCorner != null && rightNeighbor != null)
             {
-                Debug.Log("Neighbor: " + topRightCorner);
-                // Debug.Log("Tile : " + name);
-                // Debug.Log("Top neighbor: " + topNeighbor.name);
-                // Debug.Log("Bottom Right neighbor: " + rightNeighbor.name);
-                // Debug.Log("Top Right neighbor: " + topRightCorner.name + " with tile type: " + topNeighbor.HasNeighborOfType(row + 1, column, type).type);
+                //Debug.Log("Neighbor: " + topRightCorner);
 
-                // topNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
-                // HasNeighborOfType(row + 1, column+1, type).GetComponent<SpriteRenderer>().color = Color.blue;
-                // rightNeighbor.GetComponent<SpriteRenderer>().color = Color.yellow;
-                // rend.color = Color.red;
-
-                //Set sprites to one sprite
-                // topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
-                // topRightCorner.GetComponent<SpriteRenderer>().sprite = null;
-                // rightNeighbor.GetComponent<SpriteRenderer>().sprite = null;
                 TurnOffVisuals(topNeighbor);
                 TurnOffVisuals(topRightCorner);
                 TurnOffVisuals(rightNeighbor);
 
 
-                rend.sprite = visuals.crateVisuals.enemySprite4;
+                rend.sprite = visuals.crateVisuals.enemy2x2Tile;
 
                 topNeighbor.isChecked = true;
                 topRightCorner.isChecked = true;
@@ -456,7 +443,7 @@ public class Tile : MonoBehaviour
                 EnemyController enemyController = gameObject.AddComponent<EnemyController>();
                 enemyController.Init(new List<Tile>() { this, topNeighbor, topRightCorner, rightNeighbor });
 
-                
+
                 tileBoxCollider.offset = new Vector2(0.5f, 0.5f);
                 tileBoxCollider.size = new Vector2(2, 2);
 
@@ -467,26 +454,24 @@ public class Tile : MonoBehaviour
                 topNeighbor.isChecked = true;
                 topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
                 // topNeighbor.GetComponent<SpriteRenderer>().color = Color.red;
-                rend.sprite = visuals.crateVisuals.enemySprite2;
+                rend.sprite = visuals.crateVisuals.enemy1x2Tile;
+                
+                EnemyController enemyController = gameObject.AddComponent<EnemyController>();
+                enemyController.Init(new List<Tile>() { this, topNeighbor });
                 
             }
-            //Four Tile square where this sprite is in the top left
-            // if (bottomNeighbor.HasNeighborOfType(row - 1, column, type) != null && rightNeighbor != null)
-            // {
-            //     bottomNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
-            //     bottomNeighbor.HasNeighborOfType(row - 1, column, type).GetComponent<SpriteRenderer>().color = Color.green;
-            //     rightNeighbor.GetComponent<SpriteRenderer>().color = Color.green;
-            //     rend.color = Color.green;
-            //     Debug.Log("Four tiles square");
-            //     return;
-            // }
-
-            // Debug.Log("Four tiles sprite");
-            // rend.color = Color.red;
-            return;
 
             //Two tiles Tall sprite
+            if (rightNeighbor != null)
+            {
+                rightNeighbor.isChecked = true;
+                TurnOffVisuals(rightNeighbor);
 
+                rend.sprite = visuals.crateVisuals.enemy2x1Tile;   
+
+                EnemyController enemyController = gameObject.AddComponent<EnemyController>();
+                enemyController.Init(new List<Tile>() { this, rightNeighbor });
+            }
             // Debug.Log("Two tiles Tall sprite");
             // topNeighbor.GetComponent<SpriteRenderer>().color = Color.blue;
             // rend.color = Color.red;
