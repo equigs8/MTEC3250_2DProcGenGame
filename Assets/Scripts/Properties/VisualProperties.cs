@@ -48,6 +48,8 @@ public class VisualProperties : MonoBehaviour
     {
         public RuntimeAnimatorController animController;
         public Sprite sprite;
+        public Sprite sprite2;
+        public Sprite sprite3;
         public Sprite enemy2x2Tile;
         public Sprite enemy2x1Tile;
         public Sprite enemy1x2Tile;

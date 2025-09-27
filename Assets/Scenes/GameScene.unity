@@ -2922,6 +2922,8 @@ MonoBehaviour:
   crateVisuals:
     animController: {fileID: 0}
     sprite: {fileID: -4018474691228133916, guid: a4e0847b75d769e4c9933b1707b4bb07, type: 3}
+    sprite2: {fileID: 0}
+    sprite3: {fileID: 0}
     enemy2x2Tile: {fileID: 7992857587896730493, guid: 4e01d7e757741dc49846a745a0e8ae78, type: 3}
     enemy2x1Tile: {fileID: -3394004845195126689, guid: cb47c488bce4fc44ba9117b049572d76, type: 3}
     enemy1x2Tile: {fileID: 1024458005599828145, guid: a75da786af0e7e741a7bb37163980883, type: 3}
