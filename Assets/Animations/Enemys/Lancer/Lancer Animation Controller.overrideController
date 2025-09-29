@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lancer Animation Controller
+  m_Controller: {fileID: 9100000, guid: 8015e53ff9594cb46ba8552e59b7e42c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: baf012292d5674a41bfd1030ee646e79, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aa12dd97ec38aa543ac27d97575d64eb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a63103370bc9381478d0082d24a49a68, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a480db5fb94d00c47a787c522b563e8f, type: 2}

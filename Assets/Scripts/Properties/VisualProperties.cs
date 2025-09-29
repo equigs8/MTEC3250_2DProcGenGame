@@ -46,13 +46,14 @@ public class VisualProperties : MonoBehaviour
     [Serializable]
     public class CrateTileVisuals
     {
-        public RuntimeAnimatorController animController;
-        public Sprite sprite;
-        public Sprite sprite2;
-        public Sprite sprite3;
-        public Sprite enemy2x2Tile;
-        public Sprite enemy2x1Tile;
+        public Sprite enemy1x1Tile;
+        public RuntimeAnimatorController enemy1x1AnimController;
         public Sprite enemy1x2Tile;
+        public RuntimeAnimatorController enemy1x2AnimController;
+        public Sprite enemy2x1Tile;
+        public RuntimeAnimatorController enemy2x1AnimController;
+        public Sprite enemy2x2Tile;
+        public RuntimeAnimatorController enemy2x2AnimController;
         public Color color;
   
     }

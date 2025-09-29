@@ -105,7 +105,7 @@ public class Tile : MonoBehaviour
 
             case Type.CRATE:
                 ResetVisuals();
-                SetUpVisuals(visuals.crateVisuals.animController, visuals.crateVisuals.sprite, visuals.crateVisuals.color);
+                SetUpVisuals(visuals.crateVisuals.enemy1x1AnimController, visuals.crateVisuals.enemy1x1Tile, visuals.crateVisuals.color);
                 SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
                 rend.sortingOrder = 2;
                 isCrate = true;
@@ -433,6 +433,7 @@ public class Tile : MonoBehaviour
 
 
                 rend.sprite = visuals.crateVisuals.enemy2x2Tile;
+                SetUpAnimatorController(visuals.crateVisuals.enemy2x2AnimController);
 
                 topNeighbor.isChecked = true;
                 topRightCorner.isChecked = true;
@@ -455,6 +456,7 @@ public class Tile : MonoBehaviour
                 topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
                 // topNeighbor.GetComponent<SpriteRenderer>().color = Color.red;
                 rend.sprite = visuals.crateVisuals.enemy1x2Tile;
+                SetUpAnimatorController(visuals.crateVisuals.enemy1x2AnimController);
                 
                 EnemyController enemyController = gameObject.AddComponent<EnemyController>();
                 enemyController.Init(new List<Tile>() { this, topNeighbor });
@@ -479,10 +481,20 @@ public class Tile : MonoBehaviour
 
     }
 
+
+    void SetUpAnimatorController(RuntimeAnimatorController _animController)
+    {
+        if(_animController == null) return;
+        tileAnimator = _animController;
+        var anim = GetAnimator();
+        anim.runtimeAnimatorController = tileAnimator;
+    }
+
     private void TurnOffVisuals(Tile tile)
     {
         tile.GetComponent<SpriteRenderer>().sprite = null;
         tile.GetComponent<BoxCollider2D>().enabled = false;
+        tile.GetComponent<Animator>().enabled = false;
     }
     private Tile HasNeighborOfType(int row, int column, Type type)
     {
