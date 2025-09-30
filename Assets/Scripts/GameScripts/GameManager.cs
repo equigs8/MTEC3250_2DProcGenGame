@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private int cratesRemaining;
     public TextMeshProUGUI stepsTakenText;
     private int stepsTaken = 0;
+    public GameObject winScreen;
     
     void Awake()
     {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         cratesRemaining = GameProperties.inst.crateCount;
         cratesRemainingText.text = cratesRemaining.ToString("00");
+        winScreen.SetActive(false);
 
         if (VisualProperties.inst.backgroundImage != null)
         {
@@ -51,7 +53,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+    public void ActivateWinScreen()
+    {
+        winScreen.SetActive(true);
+    }
     private void UpdateCrateTextUI(Tile tile)
     {
         if (cratesRemaining < 1) return;

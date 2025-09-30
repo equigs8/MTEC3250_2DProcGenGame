@@ -21,6 +21,8 @@ public class Sounds : MonoBehaviour
     [Range(0, 1)] public float crateDestroyedVolume =1;
     public AudioClip enterTrap;
     [Range(0, 1)] public float enterTrapVolume =1;
+    public AudioClip tntExplode;
+    [Range(0, 1)] public float tntExplodeVolume =1;
     public AudioClip goalReached;
     [Range(0, 1)] public float goalReachedVolume =1;
 

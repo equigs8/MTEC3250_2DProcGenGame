@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
         {
 
             //rend.flipX = false;
-            gfxTransform.rotation = Quaternion.Euler(0, 0, -180);
+            //gfxTransform.rotation = Quaternion.Euler(0, 0, -180);
 
         }
         else if (direction.x < 0)

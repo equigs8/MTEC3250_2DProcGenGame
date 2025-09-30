@@ -2,10 +2,6 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using System.Runtime.InteropServices;
-using NUnit.Framework;
-using UnityEditor.Experimental.GraphView;
 
 public enum Type
 {
@@ -109,7 +105,7 @@ public class Tile : MonoBehaviour
                 SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
                 rend.sortingOrder = 2;
                 isCrate = true;
-                isInaccessible = true;
+                //isInaccessible = true;
                 break;
 
             case Type.TRAP:
@@ -125,13 +121,14 @@ public class Tile : MonoBehaviour
                 SetUpVisuals(visuals.blockVisuals.animController, visuals.blockVisuals.sprite, visuals.blockVisuals.color);
                 SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
                 rend.sortingOrder = 2;
-                isInaccessible = true;
+                //isInaccessible = true;
                 break;
 
             case Type.GOAL:
                 ResetVisuals();
                 SetUpVisuals(visuals.goalVisuals.animController, visuals.goalVisuals.sprite, visuals.goalVisuals.color);
                 SetUpBackground(defaultSprite, visuals.tileVisuals.topLeftCorner, visuals.tileVisuals.topRightCorner, visuals.tileVisuals.bottomLeftCorner, visuals.tileVisuals.bottomRightCorner, visuals.tileVisuals.bottom, visuals.tileVisuals.top, visuals.tileVisuals.left, visuals.tileVisuals.right);
+                rend.flipX = true;
                 rend.sortingOrder = 2;
                 isGoal = true;
                 break;
@@ -149,6 +146,7 @@ public class Tile : MonoBehaviour
                 ProjectileHit?.Invoke(collision.transform.position);
                 gameObject.GetComponent<EnemyController>().TakeDamage();
                 Destroy(collision.gameObject);
+                return;
             }
             else if (isCrate)
             {
@@ -408,11 +406,11 @@ public class Tile : MonoBehaviour
     public void UpdateSpriteBasedOnNeighbors()
     {
         if (isChecked) return;
-        if(type != Type.CRATE) return;
+        if (type != Type.CRATE) return;
 
         Tile topNeighbor = HasNeighborOfType(row, column + 1, type);
         Tile bottomNeighbor = HasNeighborOfType(row, column - 1, type);
-        Tile leftNeighbor = HasNeighborOfType(row - 1, column , type);
+        Tile leftNeighbor = HasNeighborOfType(row - 1, column, type);
         Tile rightNeighbor = HasNeighborOfType(row + 1, column, type);
 
         this.isChecked = true;
@@ -452,24 +450,26 @@ public class Tile : MonoBehaviour
             }
             else
             {
+                TurnOffVisuals(topNeighbor);
                 topNeighbor.isChecked = true;
                 topNeighbor.GetComponent<SpriteRenderer>().sprite = null;
                 // topNeighbor.GetComponent<SpriteRenderer>().color = Color.red;
                 rend.sprite = visuals.crateVisuals.enemy1x2Tile;
                 SetUpAnimatorController(visuals.crateVisuals.enemy1x2AnimController);
-                
+
                 EnemyController enemyController = gameObject.AddComponent<EnemyController>();
                 enemyController.Init(new List<Tile>() { this, topNeighbor });
-                
+                return;
+
             }
 
-            //Two tiles Tall sprite
+            //Two tiles Long sprite
             if (rightNeighbor != null)
             {
                 rightNeighbor.isChecked = true;
                 TurnOffVisuals(rightNeighbor);
 
-                rend.sprite = visuals.crateVisuals.enemy2x1Tile;   
+                rend.sprite = visuals.crateVisuals.enemy2x1Tile;
 
                 EnemyController enemyController = gameObject.AddComponent<EnemyController>();
                 enemyController.Init(new List<Tile>() { this, rightNeighbor });
@@ -478,7 +478,11 @@ public class Tile : MonoBehaviour
             // topNeighbor.GetComponent<SpriteRenderer>().color = Color.blue;
             // rend.color = Color.red;
         }
-
+        else
+        {
+            EnemyController enemyController = gameObject.AddComponent<EnemyController>();
+            enemyController.Init(new List<Tile>() { this });
+        }
     }
 
 
@@ -508,4 +512,19 @@ public class Tile : MonoBehaviour
         return null;
     }
 
+    public Tile GetEnemyGroup()
+    {
+        //get all of the enemycontrollers in the scene
+        //search there lists for this tiles row and column
+        //Return the first one we find
+
+        for (int i = 0; i < FindObjectsByType<EnemyController>(FindObjectsSortMode.None).Length; i++)
+        {
+            if (FindObjectsByType<EnemyController>(FindObjectsSortMode.None)[i].tiles.Contains(this))
+            {
+                return FindObjectsByType<EnemyController>(FindObjectsSortMode.None)[i].tiles[0];
+            }
+        }
+        return null;
+    }
 }

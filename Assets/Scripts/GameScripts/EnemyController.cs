@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public int health;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    private WaitForSeconds blinkDuration = new WaitForSeconds(0.04f);
 
     public int GetHealth()
     {
@@ -29,6 +30,7 @@ public class EnemyController : MonoBehaviour
             tiles[i].isEnemy = true;
         }
         spriteRenderer = tiles[0].GetComponent<SpriteRenderer>();
+        animator = tiles[0].GetComponent<Animator>();
         Debug.Log("Tile Count: " + tiles.Count);
         health = tiles.Count;
     }
@@ -38,27 +40,48 @@ public class EnemyController : MonoBehaviour
 
         health -= 1;
         //animator.SetTrigger("Hit");
+        StartCoroutine(FlashEnemy());
         if (CheckIfDead())
         {
-            StartCoroutine(EnemyDeath(.5f));
+            StartCoroutine(EnemyDeath(2.35f));
         }
-
     }
 
     public bool CheckIfDead()
     {
         return health <= 0;
     }
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
+    }
 
     IEnumerator EnemyDeath(float time)
     {
         //play death animation
-        //animator.SetTrigger("Die");
+        animator.SetTrigger("Die");
         yield return new WaitForSeconds(time);
         //trigger particle effect   
-        for (int i = 0; i < tiles.Count; i++) {
+        for (int i = 0; i < tiles.Count; i++)
+        {
             tiles[i].resetEnemyTile();
         }
+    }
+    private IEnumerator FlashEnemy()
+    {
+        Color color = spriteRenderer.color;
+        spriteRenderer.color = Color.red;
+        yield return blinkDuration;
+        spriteRenderer.color = color;
+        yield return blinkDuration;
+        spriteRenderer.color = Color.red;
+        yield return blinkDuration;
+        spriteRenderer.color = color;
+        yield return blinkDuration;
+        spriteRenderer.color = Color.red;
+        yield return blinkDuration;
+        spriteRenderer.color = color;
+
     }
     
 }

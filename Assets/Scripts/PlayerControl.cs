@@ -410,7 +410,7 @@ public class PlayerControl : MonoBehaviour
         else if (currentTile.isGoal)
         {
             isMoving = true;
-
+            GameManager.inst.ActivateWinScreen();
             //When we reach the goal, stop the music and play the goal reached sound
             AudioManager.inst.StopMusic();
             AudioManager.inst.PlaySound(goalReached, Sounds.inst.goalReachedVolume);
@@ -421,7 +421,34 @@ public class PlayerControl : MonoBehaviour
             {
                 var gm = GameManager.inst;
                 gm.Invoke("RestartGame", goalReached.length);
-            } 
+            }
+        }
+        else if (currentTile.isCrate)
+        {
+            currentTile.GetEnemyGroup().GetComponent<EnemyController>().Attack();
+            StartCoroutine(WaitForAttackAnimationToFinish(1f));
+            StartCoroutine(FlashPlayer());
+            //And we call the Camera shake function, passing it the shake duration we want (it's currently 1/4 a sec) 
+            CameraShake.inst.Shake(0.25f);
+
+            EnteredTrap(direction);
+
+            //This step is also necessary to make sure out place on the grid gets properly updated
+            SetTargetTile(lastTile);
+        }
+        else if (currentTile.type == Type.BLOCK)
+        {
+            AudioManager.inst.PlaySound(Sounds.inst.tntExplode, Sounds.inst.tntExplodeVolume);
+            currentTile.GetComponent<Animator>().SetTrigger("Explode");
+            StartCoroutine(WaitForAttackAnimationToFinish(1.25f));
+            StartCoroutine(FlashPlayer());
+            //And we call the Camera shake function, passing it the shake duration we want (it's currently 1/4 a sec) 
+            CameraShake.inst.Shake(0.25f);
+
+            EnteredTrap(direction);
+
+            //This step is also necessary to make sure out place on the grid gets properly updated
+            SetTargetTile(lastTile);
         }
         else
         {
@@ -430,6 +457,10 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private IEnumerator WaitForAttackAnimationToFinish(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
 
     //This coroutine just flashs the player red when they are hit by a trap
     private IEnumerator FlashPlayer()
